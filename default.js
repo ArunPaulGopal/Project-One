@@ -5,6 +5,9 @@ submit.addEventListener('click',function(e) {
   var submit = document.getElementById('submit');
   var commentbox = document.getElementById('comment');
   var commenttext = commentbox.value;
+  var attr = document.createElement('a');
+  var image = document.createElement('img');
+  image.setAttribute('src','profile.jpg');
   var text = document.createTextNode(commenttext);
   var para = document.createElement('p');
   var history = document.getElementById('history');
@@ -16,7 +19,10 @@ submit.addEventListener('click',function(e) {
   media.className = ('media');
 
   para.appendChild(text);
+  attr.appendChild(image);
   mediabody.appendChild(para);
+  medialeft.appendChild(attr);
+  media.appendChild(medialeft);
   media.appendChild(mediabody);
   history.appendChild(media);
 
