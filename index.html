@@ -10,29 +10,37 @@
     <div class="container" id="navbar">
       <img src="logo.jpg"  id="logo">
       <div class="input-group" id="search">
-        <input type="text" class="  search-query form-control" placeholder="Search" />
+        <input type="text" class=" search-query form-control" placeholder="Search" />
         <span class="input-group-btn">
             <button class="btn btn-danger" type="button">
-                <span class=" glyphicon glyphicon-search"></span>
+                <span class="glyphicon glyphicon-search"></span>
             </button>
         </span>
       </div>
     </div>
     <div class="container" id="results">
       <div class="media" id="resultsview">
-            <a class="media-left" href="#">
-                <img class="media-object" data-src="..." alt="Generic placeholder image">
-            </a>
             <div class="media-body" id="mediab">
-                <h4 class="media-heading">Nested media heading</h4>
-                Cras sit amet nibh libero
+                <h4 class="media-heading">Media heading</h4>
             </div>
+      </div>
+    </div>
+    <div class="container">
+      <div id="player"></div>
+      <div id="comments">
+        <div class="media">
+          <h1 class="media-heading">Comment box</h1>
+          <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+            <button type="button" class="btn btn-primary" id="submit">Submit</button>
+          <div class="media-body" id="history">
+            <p>Existing comment 1</p>
+            <p>Existing comment 2</p>
+            <p>Existing comment 3</p>
           </div>
         </div>
       </div>
-    </div>
-    </div>
-    </div>
     <script src="default.js"></script>
   </body>
 </html>
