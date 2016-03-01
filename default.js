@@ -36,31 +36,30 @@ var videoresults = [
 
 function myFunction(object){
 
-  //global
-  var results = document.getElementById('resultsview');
-
 
   //images
+  var media = document.createElement('div')
+  media.className= ('media');
   var attribute = document.createElement('a');
-  var medialeft = document.createElement('media-left');
+  var medialeft = document.createElement('div');
   medialeft.className= ("media-left");
   var image = document.createElement('img');
+  image.setAttribute('src',object.img);
   var inode = document.createTextNode(icontent);
   var icontent = object.img;
 
   image.appendChild(inode);
   attribute.appendChild(image);
   medialeft.appendChild(attribute);
-  results.appendChild(medialeft);
+  media.appendChild(medialeft);
+
 
 
   //descriptions
 
 
-  var media = document.createElement('media');
-  media.className= ("media");
-  var mediabody = document.createElement('media-body');
-  mediabody.className= ("media");
+  var mediabody = document.createElement('div');
+  mediabody.className= ("media-body");
   var paragraph = document.createElement('p');
   var content = object.description;
   var text = document.createTextNode(content);
@@ -68,7 +67,11 @@ function myFunction(object){
 
   paragraph.appendChild(text);
   mediabody.appendChild(paragraph);
-  results.appendChild(mediabody);
+  media.appendChild(mediabody);
+
+
+
+  results.appendChild(media);
 
 
 
@@ -79,6 +82,8 @@ function myFunction(object){
 
 }
 
+var results = document.getElementById('resultsview');
+console.log(results);
 results.addEventListener('click',function(e) {
     myFunction(videoresults[0]);
 });
