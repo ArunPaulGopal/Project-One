@@ -1,7 +1,6 @@
 //Comments Box
 
 
-
 submit.addEventListener('click',function(e) {
   var submit = document.getElementById('submit');
   var commentbox = document.getElementById('comment');
@@ -58,6 +57,7 @@ function myFunction(object){
 
 
   //images
+
   var media = document.createElement('div')
   media.className= ('media');
   var attribute = document.createElement('a');
@@ -75,14 +75,11 @@ function myFunction(object){
 
 
 
-  //body
+  //body: Upload info, Descriptions,Title, Likes,etc.
+
   var uploadinfo = document.createElement('p');
   var ucontent = object.uploadinfo;
   var utext = document.createTextNode(ucontent);
-
-
-
-
   var title = document.createElement('h1');
   title.className=("media-heading");
   var tcontent = object.title;
@@ -100,8 +97,6 @@ function myFunction(object){
   mediabody.appendChild(paragraph);
   mediabody.appendChild(uploadinfo);
   media.appendChild(mediabody);
-
-
 
   results.appendChild(media);
 
