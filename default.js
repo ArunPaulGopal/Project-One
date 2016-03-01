@@ -1,25 +1,4 @@
-/* Search Results/Descriptions
-1. Create a function that basically runs for an object and makes variables that create elements. (OPTIONAL ADD IN CLASSES HERE)
-
-THE FUNCTION IS HUGE!!!!!!!!!
-
-2. In the function, append like crazy all the things built in #1.
-
-media-left.appendChild('paragraph');
-media.appendChild('media-left');
-results.appendChild('media');
-
-
-
-3. Event listeners for running through the adding
-  results.addEventListener('click',function(){
-  for loop here {
-  if statement {
-    myFunction(object[i]);
-}
-}
-}
-*/
+// Search Results/Descriptions
 
 function myFunction(object){
 
