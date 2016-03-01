@@ -1,25 +1,27 @@
 //Comments Box
 
 
-//Do something here to grab comments box input/floating text and label it as a variable.
-
-var submit = document.getElementById('submit');
-var commentbox = document.getElementById('comment');
-
 
 submit.addEventListener('click',function(e) {
+  var submit = document.getElementById('submit');
+  var commentbox = document.getElementById('comment');
   var commenttext = commentbox.value;
   var text = document.createTextNode(commenttext);
   var para = document.createElement('p');
   var history = document.getElementById('history');
+  var mediabody = document.createElement('div');
+  mediabody.className = ('media-body');
+  var medialeft = document.createElement('div');
+  medialeft.className = ('media-left');
+  var media = document.createElement('div');
+  media.className = ('media');
+
   para.appendChild(text);
-  history.appendChild(para);
+  mediabody.appendChild(para);
+  media.appendChild(mediabody);
+  history.appendChild(media);
+
 })
-
-//Do something here to take that input and append it as a child of existing comments grid? Event Listener/Function
-
-
-
 
 
 // Search Results/Descriptions
