@@ -1,3 +1,93 @@
+/* Search Results/Descriptions
+1. Create a function that basically runs for an object and makes variables that create elements. (OPTIONAL ADD IN CLASSES HERE)
+
+THE FUNCTION IS HUGE!!!!!!!!!
+
+2. In the function, append like crazy all the things built in #1.
+
+media-left.appendChild('paragraph');
+media.appendChild('media-left');
+results.appendChild('media');
+
+
+
+3. Event listeners for running through the adding
+  results.addEventListener('click',function(){
+  for loop here {
+  if statement {
+    myFunction(object[i]);
+}
+}
+}
+*/
+
+function myFunction(object){
+
+  //global
+  var results = document.getElementById('resultsview');
+
+
+
+  //images
+  var attribute = document.createElement('a');
+  var medialeft = document.createElement('media-left');
+  medialeft.className= ("media-left");
+  var image = document.createElement('img');
+  var inode = document.createTextNode(icontent);
+  var icontent = object.img;
+
+  image.appendChild(inode);
+  attribute.appendChild(image);
+  medialeft.appendChild(attribute);
+  results.appendChild(medialeft);
+
+
+  //descriptions
+
+
+  var media = document.createElement('media');
+  media.className= ("media");
+  var mediabody = document.createElement('media-body');
+  mediabody.className= ("media");
+  var paragraph = document.createElement('p');
+  var content = object.description;
+  var text = document.createTextNode(content);
+
+
+  paragraph.appendChild(text);
+  mediabody.appendChild(paragraph);
+  results.appendChild(mediabody);
+
+
+
+
+//headers
+
+
+
+}
+
+results.addEventListener('click',function(e) {
+    myFunction(videoresults[0]);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* YOUTUBE API */
 // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
@@ -9,8 +99,8 @@
       var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-          height: '390',
-          width: '640',
+          height: '900',
+          width: '1500',
           videoId: 'M7lc1UVf-VE',
           events: {
             'onReady': onPlayerReady,
