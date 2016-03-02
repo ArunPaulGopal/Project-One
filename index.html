@@ -8,21 +8,32 @@
   </head>
   <body>
     <div class="container" id="navbar">
-      <img src="images/logo.jpg"  id="logo">
-      <div class="input-group" id="search">
-        <input type="text" class=" search-query form-control" placeholder="Search" />
-        <span class="input-group-btn">
-            <button class="btn btn-danger" type="button" id="searchr">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-        </span>
+      <div class="row">
+        <div class="col-lg-3">
+          <img src="images/logo.jpg"  id="logo">
+        </div>
+        <div class="col-lg-6">
+          <div class="input-group" id="search">
+            <input type="text" class=" search-query form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <a href="#results"><button class="btn btn-danger" type="button" id="searchr">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button></a>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-3" id="profile">
+          <strong>Your Profile</strong>
+          <img src="images/profile.jpg" class="img-circle">
+        </div>
       </div>
+    </div>
     </div>
     <div class="container" id="results">
       <div class="media" id="resultsview">
       </div>
     </div>
-    <div class="container hide" id="BVS">
+    <div class="container hide" id="ng">
       <div id="player">
         <div class="embed-responsive embed-responsive-16by9">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/plWexCID-kA"></iframe>

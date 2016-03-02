@@ -57,7 +57,7 @@ var videoresults = [
 },
 {
   title: "Inside the Superhman World of the Iceman",
-  uploadinfo: "VICE 1 2/26/15",
+  uploadinfo: "VICE 2/26/15",
   views:  "98 million",
   description: "Question what you believe is possible",
   likes:  871,
@@ -74,6 +74,7 @@ function myFunction(object){
   var media = document.createElement('div')
   media.className= ('media');
   var attribute = document.createElement('a');
+  attribute.setAttribute('href','#player');
   var medialeft = document.createElement('div');
   medialeft.className= ("media-left");
   var image = document.createElement('img');
@@ -118,22 +119,21 @@ function myFunction(object){
 
 var results = document.getElementById('resultsview');
 
+
+//Toggling the video added inside of the function so that toggle is appended after the results are listed
+
 searchr.addEventListener('click',function(e) {
   for (var i=0; i<videoresults.length; i++){
     myFunction(videoresults[i]);
+
+  var toggleclass = document.getElementById('toggleclass');
+  toggleclass.addEventListener('click',function(e) {
+    var ng = document.getElementById('ng');
+    ng.classList.toggle('hide');
+    });
   }
 
 
 //TO FINISH: ADD SEARCH KEYWORD ID AND USE THAT TO SERVE AS THE IF STATEMENT FOR RUNNING THINGS
 
 });
-
-
-
-//Toggling the video
-
-
-searchr.addEventListener('click',function(e) {
-    var bvs = document.getElementById('BVS');
-    bvs.classList.toggle('hide');
-  });
