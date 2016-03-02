@@ -1,3 +1,15 @@
+
+
+//Toggling the video
+
+searchr.addEventListener('click',function(e) {
+    var bvs = document.getElementById('BVS');
+    bvs.classList.toggle('hide');
+  });
+
+
+
+
 //Comments Box
 
 
@@ -8,6 +20,7 @@ submit.addEventListener('click',function(e) {
   var attr = document.createElement('a');
   var image = document.createElement('img');
   image.setAttribute('src','profile.jpg');
+  image.setAttribute('class','img-circle');
   var text = document.createTextNode(commenttext);
   var para = document.createElement('p');
   var history = document.getElementById('history');
@@ -110,10 +123,11 @@ function myFunction(object){
 
 var results = document.getElementById('resultsview');
 
-results.addEventListener('click',function(e) {
+searchr.addEventListener('click',function(e) {
   for (var i=0; i<videoresults.length; i++){
     myFunction(videoresults[i]);
   }
+
 
 //TO FINISH: ADD SEARCH KEYWORD ID AND USE THAT TO SERVE AS THE IF STATEMENT FOR RUNNING THINGS
 
