@@ -79,7 +79,8 @@ function myFunction(object){
   medialeft.className= ("media-left");
   var image = document.createElement('img');
   image.setAttribute('src',object.img);
-  image.setAttribute('id','toggleclass')
+  image.setAttribute('id','toggleclass');
+  image.setAttribute('class','img-rounded');
   var inode = document.createTextNode(icontent);
   var icontent = object.img;
 
@@ -121,19 +122,20 @@ var results = document.getElementById('resultsview');
 
 
 //Toggling the video added inside of the function so that toggle is appended after the results are listed
+//Search will only execute for keyword motivation
 
 searchr.addEventListener('click',function(e) {
-  for (var i=0; i<videoresults.length; i++){
-    myFunction(videoresults[i]);
+  var searchbox = document.getElementById('searcht');
+  var searchtext = searchbox.value;
+  if (searchtext.toLowerCase() === "motivation") {
+    for (var i=0; i<videoresults.length; i++){
+      myFunction(videoresults[i]);
 
-  var toggleclass = document.getElementById('toggleclass');
-  toggleclass.addEventListener('click',function(e) {
-    var ng = document.getElementById('ng');
-    ng.classList.toggle('hide');
-    });
+    var toggleclass = document.getElementById('toggleclass');
+    toggleclass.addEventListener('click',function(e) {
+      var ng = document.getElementById('ng');
+      ng.classList.toggle('hide');
+      });
+    }
   }
-
-
-//TO FINISH: ADD SEARCH KEYWORD ID AND USE THAT TO SERVE AS THE IF STATEMENT FOR RUNNING THINGS
-
 });
