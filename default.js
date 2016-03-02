@@ -45,7 +45,7 @@ var videoresults = [
   views:  "39 million",
   description: "A reminder not to forget why you do what you do",
   likes:  871,
-  img: 'images/ng.webp'
+  img: 'images/neil-gaiman.jpg'
 },
 {
   title: "Will Smith: Running and Reading",
@@ -53,7 +53,7 @@ var videoresults = [
   views:  "42 million",
   description: "Simple truths from a beloved actor.",
   likes:  871,
-  img: 'images/ws.webp'
+  img: 'images/will-smith.jpg'
 },
 {
   title: "Inside the Superhman World of the Iceman",
@@ -61,7 +61,7 @@ var videoresults = [
   views:  "98 million",
   description: "Question what you believe is possible",
   likes:  871,
-  img: 'images/wh.webp'
+  img: 'images/wim-hof.jpg'
 },
 
 ]

@@ -1,10 +1,12 @@
 
 
 #navbar {
-  height: 200px;
+  height: 100px;
   width: 100%;
   position: fixed;
   z-index: 1;
+  background-color: black;
+  color: white;
 }
 
 
@@ -22,18 +24,20 @@
 
 #results {
   position: relative;
-  height: 1000px;
-  top: 500px;
+  top: 200px;
+}
+
+.media {
+  background-color: black;
+  color: white;
 }
 
 #player {
-  height: 1000px;
   position: relative;
   top: 500px;
 }
 
 #comments {
-  height: 600px;
   position: relative;
-  top: 150px;
+  top: 500px;
 }
