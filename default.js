@@ -1,11 +1,5 @@
 
 
-//Toggling the video
-
-searchr.addEventListener('click',function(e) {
-    var bvs = document.getElementById('BVS');
-    bvs.classList.toggle('hide');
-  });
 
 
 
@@ -84,6 +78,7 @@ function myFunction(object){
   medialeft.className= ("media-left");
   var image = document.createElement('img');
   image.setAttribute('src',object.img);
+  image.setAttribute('id','toggleclass')
   var inode = document.createTextNode(icontent);
   var icontent = object.img;
 
@@ -132,3 +127,13 @@ searchr.addEventListener('click',function(e) {
 //TO FINISH: ADD SEARCH KEYWORD ID AND USE THAT TO SERVE AS THE IF STATEMENT FOR RUNNING THINGS
 
 });
+
+
+
+//Toggling the video
+
+
+searchr.addEventListener('click',function(e) {
+    var bvs = document.getElementById('BVS');
+    bvs.classList.toggle('hide');
+  });

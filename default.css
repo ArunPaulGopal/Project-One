@@ -1,1 +1,32 @@
+#navbar {
+  height: 400px;
+  width: 100%;
+  position: fixed;
+  z-index: 0;
+}
 
+
+#logo {
+}
+
+#search {
+
+}
+
+#results {
+  position: relative;
+  height: 1000px;
+  top: 500px;
+}
+
+#player {
+  height: 1000px;
+  position: relative;
+  top: 500px;
+}
+
+#comments {
+  height: 600px;
+  position: relative;
+  top: 150px;
+}
