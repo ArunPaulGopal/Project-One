@@ -19,7 +19,7 @@ submit.addEventListener('click',function(e) {
   var commenttext = commentbox.value;
   var attr = document.createElement('a');
   var image = document.createElement('img');
-  image.setAttribute('src','profile.jpg');
+  image.setAttribute('src','images/profile.jpg');
   image.setAttribute('class','img-circle');
   var text = document.createTextNode(commenttext);
   var para = document.createElement('p');
@@ -46,28 +46,28 @@ submit.addEventListener('click',function(e) {
 
 var videoresults = [
 {
-  title: "Result 1",
-  uploadinfo: "UploadGuy 1 1/12/16",
-  views:  571,
-  description: "This is my first description of a video",
+  title: "Neil Gaiman: 2012 Commencement Speech",
+  uploadinfo: "Secret Art Society  12/12/12",
+  views:  "39 million",
+  description: "A reminder not to forget why you do what you do",
   likes:  871,
-  img: 'logo.jpg'
+  img: 'images/ng.webp'
 },
 {
-  title: "Result 2",
-  uploadinfo: "UploadGuy 1 1/12/16",
-  views:  571,
-  description: "This is my first description of a video",
+  title: "Will Smith: Running and Reading",
+  uploadinfo: "TheFreshPrince 1/12/15",
+  views:  "42 million",
+  description: "Simple truths from a beloved actor.",
   likes:  871,
-  img: 'logo.jpg'
+  img: 'images/ws.webp'
 },
 {
-  title: "Result 3",
-  uploadinfo: "UploadGuy 1 1/12/16",
-  views:  571,
-  description: "This is my first description of a video",
+  title: "Inside the Superhman World of the Iceman",
+  uploadinfo: "VICE 1 2/26/15",
+  views:  "98 million",
+  description: "Question what you believe is possible",
   likes:  871,
-  img: 'logo.jpg'
+  img: 'images/wh.webp'
 },
 
 ]
