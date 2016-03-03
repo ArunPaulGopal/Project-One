@@ -1,4 +1,4 @@
-// Search Results Data
+// SEARCH RESULTS: Data
 var videoresults = [
 {
   title: "Neil Gaiman: 2012 Commencement Speech",
@@ -33,7 +33,7 @@ var videoresults = [
   img: 'images/steve-jobs.jpg'
 }
 ];
-//Comment Box Data
+//COMMENTS: Box Data
 var commenthistory = [
   {
     comment: "Much Amaze.So much feeling.",
@@ -42,10 +42,13 @@ var commenthistory = [
   {
     comment: "Is he an artist?",
     img: 'images/troll.jpg'
+  },
+  {
+    comment: "I always make great art!",
+    img: 'images/baby.jpg'
   }
 ]
-
-// Comments Box: Function to build the history upon initial search
+// COMMENTS: Function to build the history
 function commentBuilder(object) {
   var image = document.createElement('img');
   image.setAttribute('src',object.img);
@@ -67,13 +70,13 @@ function commentBuilder(object) {
   media.appendChild(mediabody);
   history.appendChild(media);
 };
-
+// COMMENTS: Call the history builder function when user searches
 searchr.addEventListener('click',function(e) {
     for (var i=0; i<commenthistory.length; i++){
       commentBuilder(commenthistory[i]);
     }
   });
-// Comments Box: Function to add new comments
+// COMMENTS: Function that builds new comments by the user
 submit.addEventListener('click',function(e) {
   // Create variables to be appended
   var submit = document.getElementById('submit');
@@ -101,8 +104,7 @@ submit.addEventListener('click',function(e) {
   media.appendChild(mediabody);
   history.appendChild(media);
 });
-
-// Search Results: Function for creation
+// SEARCH RESULTS: Function for creation
 function myFunction(object){
   // Getting variables ready for images
   var media = document.createElement('div')
@@ -146,8 +148,8 @@ function myFunction(object){
   results.appendChild(media);
 };
 var results = document.getElementById('results');
-// Toggling the video added inside of the function so that toggle is appended after the results are listed
-// Search will only execute for keyword motivation
+// SEARCH RESULTS: Execute the function upon search.
+// Also added in Video Toggling functionality here.
 searchr.addEventListener('click',function(e) {
   var searchbox = document.getElementById('searchtext');
   var searchtext = searchbox.value;
