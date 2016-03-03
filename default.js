@@ -1,31 +1,3 @@
-// Comments Box
-submit.addEventListener('click',function(e) {
-  // Create variables to be appended
-  var submit = document.getElementById('submit');
-  var commentbox = document.getElementById('comment');
-  var commenttext = commentbox.value;
-  var attr = document.createElement('a');
-  var image = document.createElement('img');
-  image.setAttribute('src','images/profile.jpg');
-  image.setAttribute('class','img-circle');
-  var text = document.createTextNode(commenttext);
-  var para = document.createElement('p');
-  var history = document.getElementById('history');
-  var mediabody = document.createElement('div');
-  mediabody.className = ('media-body');
-  var medialeft = document.createElement('div');
-  medialeft.className = ('media-left');
-  var media = document.createElement('div');
-  media.className = ('media');
-  // Append variables
-  para.appendChild(text);
-  attr.appendChild(image);
-  mediabody.appendChild(para);
-  medialeft.appendChild(attr);
-  media.appendChild(medialeft);
-  media.appendChild(mediabody);
-  history.appendChild(media);
-});
 // Search Results Data
 var videoresults = [
 {
@@ -61,6 +33,75 @@ var videoresults = [
   img: 'images/steve-jobs.jpg'
 }
 ];
+//Comment Box Data
+var commenthistory = [
+  {
+    comment: "Much Amaze.So much feeling.",
+    img: 'images/doge.jpeg'
+  },
+  {
+    comment: "Is he an artist?",
+    img: 'images/troll.jpg'
+  }
+]
+
+// Comments Box: Function to build the history upon initial search
+function commentBuilder(object) {
+  var image = document.createElement('img');
+  image.setAttribute('src',object.img);
+  image.setAttribute('class','img-circle');
+  var medialeft = document.createElement('div');
+  medialeft.setAttribute('class','media-left');
+  var text = object.comment;
+  var node = document.createTextNode(text);
+  var paragraph = document.createElement('p');
+  var mediabody = document.createElement('div');
+  mediabody.setAttribute('class','media-body');
+  var media = document.createElement('div');
+  var history = document.getElementById('history')
+  media.setAttribute('class','media');
+  medialeft.appendChild(image);
+  paragraph.appendChild(node);
+  mediabody.appendChild(paragraph);
+  media.appendChild(medialeft);
+  media.appendChild(mediabody);
+  history.appendChild(media);
+};
+
+searchr.addEventListener('click',function(e) {
+    for (var i=0; i<commenthistory.length; i++){
+      commentBuilder(commenthistory[i]);
+    }
+  });
+// Comments Box: Function to add new comments
+submit.addEventListener('click',function(e) {
+  // Create variables to be appended
+  var submit = document.getElementById('submit');
+  var commentbox = document.getElementById('comment');
+  var commenttext = commentbox.value;
+  var attr = document.createElement('a');
+  var image = document.createElement('img');
+  image.setAttribute('src','images/profile.jpg');
+  image.setAttribute('class','img-circle');
+  var text = document.createTextNode(commenttext);
+  var para = document.createElement('p');
+  var history = document.getElementById('history');
+  var mediabody = document.createElement('div');
+  mediabody.className = ('media-body');
+  var medialeft = document.createElement('div');
+  medialeft.className = ('media-left');
+  var media = document.createElement('div');
+  media.className = ('media');
+  // Append variables
+  para.appendChild(text);
+  attr.appendChild(image);
+  mediabody.appendChild(para);
+  medialeft.appendChild(attr);
+  media.appendChild(medialeft);
+  media.appendChild(mediabody);
+  history.appendChild(media);
+});
+
 // Search Results: Function for creation
 function myFunction(object){
   // Getting variables ready for images
