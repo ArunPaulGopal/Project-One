@@ -1,13 +1,6 @@
-
-
-
-
-
-
 //Comments Box
-
-
 submit.addEventListener('click',function(e) {
+  //Create variables to be appended
   var submit = document.getElementById('submit');
   var commentbox = document.getElementById('comment');
   var commenttext = commentbox.value;
@@ -24,7 +17,7 @@ submit.addEventListener('click',function(e) {
   medialeft.className = ('media-left');
   var media = document.createElement('div');
   media.className = ('media');
-
+  //Append variables
   para.appendChild(text);
   attr.appendChild(image);
   mediabody.appendChild(para);
@@ -32,12 +25,8 @@ submit.addEventListener('click',function(e) {
   media.appendChild(medialeft);
   media.appendChild(mediabody);
   history.appendChild(media);
-
 })
-
-
-// Search Results/Descriptions
-
+// Search Results Data
 var videoresults = [
 {
   title: "Neil Gaiman: 2012 Commencement Speech",
@@ -63,14 +52,10 @@ var videoresults = [
   likes:  871,
   img: 'images/wim-hof.jpg'
 },
-
 ]
-
+//Search Results: Function for creation
 function myFunction(object){
-
-
   //images
-
   var media = document.createElement('div')
   media.className= ('media');
   var attribute = document.createElement('a');
@@ -83,16 +68,12 @@ function myFunction(object){
   image.setAttribute('class','img-rounded');
   var inode = document.createTextNode(icontent);
   var icontent = object.img;
-
+  //appending images
   image.appendChild(inode);
   attribute.appendChild(image);
   medialeft.appendChild(attribute);
   media.appendChild(medialeft);
-
-
-
   //body: Upload info, Descriptions,Title, Likes,etc.
-
   var uploadinfo = document.createElement('p');
   var ucontent = object.uploadinfo;
   var utext = document.createTextNode(ucontent);
@@ -105,7 +86,7 @@ function myFunction(object){
   var paragraph = document.createElement('p');
   var content = object.description;
   var text = document.createTextNode(content);
-
+  //appending body
   uploadinfo.appendChild(utext);
   paragraph.appendChild(text);
   title.appendChild(ttext);
@@ -113,19 +94,13 @@ function myFunction(object){
   mediabody.appendChild(paragraph);
   mediabody.appendChild(uploadinfo);
   media.appendChild(mediabody);
-
   results.appendChild(media);
-
 }
-
 var results = document.getElementById('resultsview');
-
-
 //Toggling the video added inside of the function so that toggle is appended after the results are listed
 //Search will only execute for keyword motivation
-
 searchr.addEventListener('click',function(e) {
-  var searchbox = document.getElementById('searcht');
+  var searchbox = document.getElementById('searchtext');
   var searchtext = searchbox.value;
   if (searchtext.toLowerCase() === "motivation") {
     for (var i=0; i<videoresults.length; i++){

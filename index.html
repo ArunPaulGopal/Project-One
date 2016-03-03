@@ -14,7 +14,7 @@
         </div>
         <div class="col-lg-6">
           <div class="input-group" id="search">
-            <input type="text" class=" search-query form-control" placeholder="Search" id="searcht" />
+            <input type="text" class=" search-query form-control" placeholder="Search" id="searchtext" />
             <span class="input-group-btn">
                 <a href="#results"><button class="btn btn-danger" type="button" id="searchr">
                     <span class="glyphicon glyphicon-search"></span>
@@ -28,20 +28,28 @@
         </div>
       </div>
     </div>
-    <div class="container col-lg-12" id="results">
-      <div id="resultsview">
+    <div class="container" id="intro">
+      <div class="row col-lg-12">
+        <video autoplay loop muted poster="screenshot.jpg" id="background">
+          <source src="images/bokeh1.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
-    <div class="container hide" id="ng">
+    <div class="container col-lg-12" id="results">
       <div class="row">
-        <div class="col-lg-6">
+          <div id="resultsview"></div>
+      </div>
+    </div>
+    <div class="container hide col-lg-12" id="ng">
+      <div class="row">
+        <div class="col-lg-9">
           <div id="player">
             <div class="embed-responsive embed-responsive-16by9">
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/plWexCID-kA"></iframe>
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-3">
           <div id="comments">
             <div class="media">
               <div class="form-group">
