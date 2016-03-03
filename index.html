@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   </head>
   <body>
-    <div class="container-fluid" id="navbar">
-      <div class="row">
-        <div class="col-lg-3">
+    <div class="containter-fluid" id="navbar">
+      <div class="row" >
+        <div class="col-md-3">
           <img src="images/logo.jpg"  id="logo">
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <div class="input-group" id="search">
             <input type="text" class=" search-query form-control" placeholder="Search" id="searchtext" />
             <span class="input-group-btn">
@@ -22,67 +22,57 @@
             </span>
           </div>
         </div>
-        <div class="col-lg-3" id="profile">
+        <div class="col-md-3" id="profile">
           <strong>Your Profile</strong>
           <img src="images/profile.jpg" class="img-circle">
         </div>
       </div>
-    </div>
-    <div class="container-fluid" id="intro">
-      <div class="row col-lg-12">
-        <video autoplay loop muted poster="screenshot.jpg" id="background">
-          <source src="images/bokeh1.mp4" type="video/mp4">
-        </video>
+      <div class="row" id="intro">
+        <div class="col-md-12">
+          <video autoplay loop muted poster="screenshot.jpg" id="background">
+            <source src="images/bokeh1.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
-    </div>
-    <div class="container-fluid col-lg-12" id="results">
       <div class="row">
-          <div id="resultsview"></div>
+        <div class="col-md-12 media" id="results">
       </div>
-    </div>
-    <div class="container-fluid hide col-lg-12" id="ng">
-      <div class="row">
-        <div class="col-lg-9">
-          <div id="player">
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/plWexCID-kA"></iframe>
-            </div>
+      </div>
+      <div class="row hide" id="speech">
+        <div class="col-md-9" id="video">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/plWexCID-kA"></iframe>
           </div>
         </div>
-        <div class="col-lg-3">
-          <div id="comments">
-            <div class="media">
-              <div class="form-group">
-                <label for="comment">Comment:</label><br>
-                <textarea class="form-control" rows="5" id="comment"></textarea><br>
-                <button type="button" class="btn btn-primary" id="submit">Submit</button>
-              <div class="media" id="history">
-                <div class="media">
+        <div class="col-md-3" id="comments">
+          <div class="media">
+            <div class="form-group">
+              <label for="comment">Comment:</label><br>
+              <textarea class="form-control" rows="5" id="comment"></textarea><br>
+              <button type="button" class="btn btn-primary" id="submit">Submit</button>
+            </div>
+            <div class="media" id="history">
+              <div class="media">
+                <div class="media-left">
+                  <img src="images/doge.jpeg" class="img-circle"/>
+                </div>
+                <div class="media-body">
+                  <p>Much Amaze.So much feeling.</p>
+                </div>
+              </div>
+              <div class="media">
                   <div class="media-left">
-                    <img src="images/doge.jpeg" class="img-circle"/>
+                    <img src="images/troll.jpg" class="img-circle"/>
                   </div>
                   <div class="media-body">
-                    <p>Much Amaze.So much feeling.</p>
+                    <p>Is he an artist?</p>
                   </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                      <img src="images/troll.jpg" class="img-circle"/>
-                    </div>
-                    <div class="media-body">
-                      <p>Is he an artist?</p>
-                    </div>
-                </div>
-              </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="default.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.map"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+  <script src="default.js"></script>
   </body>
 </html>

@@ -1,9 +1,5 @@
 
 
-body {
-  background-image: url(images/background.jpg);
-}
-
 #background {
    position: fixed;
    top: 50%;
@@ -19,6 +15,7 @@ body {
    background-size: cover;
 }
 
+/*
 #navbar {
   position: fixed;
   z-index: 1;
