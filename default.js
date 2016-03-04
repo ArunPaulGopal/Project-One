@@ -3,53 +3,26 @@ $(document).ready(function(){
   $('#logo').click(function(){
     $(this).fadeOut("slow");
   })
-//Turn comment Thumbs blue when clicked
-  $('.thumb').click(function(){
-    $(this).toggleClass("blue");
-  })
-  // SEARCH RESULTS: Data
-  var videoresults = [
-  {
-    title: "Neil Gaiman: 2012 Commencement Speech",
-    uploadinfo: "Secret Art Society  12/12/12",
-    views:  "39 million",
-    description: "A reminder not to forget why you do what you do.",
-    likes:  871,
-    img: 'images/neil-gaiman.jpg'
-  },
-  {
-    title: "Will Smith: Running and Reading",
-    uploadinfo: "TheFreshPrince 1/12/15",
-    views:  "42 million",
-    description: "Simple truths from a beloved actor.",
-    likes:  871,
-    img: 'images/will-smith.jpg'
-  },
-  {
-    title: "Inside the Superhman World of the Iceman",
-    uploadinfo: "VICE 2/26/15",
-    views:  "98 million",
-    description: "Question what you believe is possible.",
-    likes:  871,
-    img: 'images/wim-hof.jpg'
-  },
-  {
-    title: "Steve Jobs: 2005 Stanford Commencement",
-    uploadinfo: "APPLE INC. 2/26/14",
-    views:  "95 million",
-    description: "He wasn't the nicest guy, but he sure was passionate.",
-    likes:  871,
-    img: 'images/steve-jobs.jpg'
-  },
-  {
-    title: "Senecca: Health, Happiness, and Stoicism",
-    uploadinfo: "Philosopher 1/1/16",
-    views:  "100 million",
-    description: "A refreshing look on happiness as a skill and mindset to achieve.",
-    likes:  1258,
-    img: 'images/senecca.jpg'
-  }
-  ];
+// RECOMMENDATIONS FUNCTIONALITY SECTION START
+  // RECOMMENDATIONS: Data
+  var recommendations = [
+    {
+      title: "Recommendation 1",
+      description: "TBD",
+      img: 'images/logo.jpg'
+    },
+    {
+      title: "Recommendation 2",
+      description: "TBD",
+      img: 'images/logo.jpg'
+    },
+    {
+      title: "Recommendation 3",
+      description: "TBD",
+      img: 'images/logo.jpg'
+    }
+  ]
+// COMMENTS FUNCTIONALITY SECTION START
   //COMMENTS: Box Data
   var commenthistory = [
     {
@@ -121,6 +94,54 @@ $(document).ready(function(){
     media.appendChild(mediabody);
     history.appendChild(media);
   });
+  //COMMENTS: Turn thumbs blue when clicked
+    $('.thumb').click(function(){
+      $(this).toggleClass("blue");
+    })
+// SEARCH FUNCTIONALITY SECTION START
+    // SEARCH RESULTS: Data
+    var videoresults = [
+    {
+      title: "Neil Gaiman: 2012 Commencement Speech",
+      uploadinfo: "Secret Art Society  12/12/12",
+      views:  "39 million",
+      description: "A reminder not to forget why you do what you do.",
+      likes:  871,
+      img: 'images/neil-gaiman.jpg'
+    },
+    {
+      title: "Will Smith: Running and Reading",
+      uploadinfo: "TheFreshPrince 1/12/15",
+      views:  "42 million",
+      description: "Simple truths from a beloved actor.",
+      likes:  871,
+      img: 'images/will-smith.jpg'
+    },
+    {
+      title: "Inside the Superhman World of the Iceman",
+      uploadinfo: "VICE 2/26/15",
+      views:  "98 million",
+      description: "Question what you believe is possible.",
+      likes:  871,
+      img: 'images/wim-hof.jpg'
+    },
+    {
+      title: "Steve Jobs: 2005 Stanford Commencement",
+      uploadinfo: "APPLE INC. 2/26/14",
+      views:  "95 million",
+      description: "He wasn't the nicest guy, but he sure was passionate.",
+      likes:  871,
+      img: 'images/steve-jobs.jpg'
+    },
+    {
+      title: "Senecca: Health, Happiness, and Stoicism",
+      uploadinfo: "Philosopher 1/1/16",
+      views:  "100 million",
+      description: "A refreshing look on happiness as a skill and mindset to achieve.",
+      likes:  1258,
+      img: 'images/senecca.jpg'
+    }
+    ];
   // SEARCH RESULTS: Function for creation
   function myFunction(object){
     // Getting variables ready for images
