@@ -5,7 +5,7 @@ $(document).ready(function(){
   })
 //Turn Thumbs blue when clicked
   $('.thumb').click(function(){
-    $(this).addClass("blue");
+    $(this).toggleClass("blue");
   })
   // SEARCH RESULTS: Data
   var videoresults = [
