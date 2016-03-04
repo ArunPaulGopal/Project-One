@@ -1,5 +1,3 @@
-
-
 #background {
    position: fixed;
    top: 50%;
@@ -14,44 +12,14 @@
    background: url(polina.jpg) no-repeat;
    background-size: cover;
 }
-
-
+#speech {
+  position: relative;
+  margin: 100px;
+}
 .media {
   background-color: black;
   color: white;
 }
-
 .blue {
   color: blue;
-}
-
-/*
-
-#logo {
-}
-
-#search {
-
-}
-
-#profile {
-  position: relative;
-  left: 400px;
-}
-
-#results {
-  position: relative;
-  top: 110px;
-}
-
-
-
-#player {
-  position: relative;
-  top: 200px;
-}
-
-#comments {
-  position: relative;
-  top: 200px;
 }

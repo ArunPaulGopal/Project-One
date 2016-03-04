@@ -40,6 +40,14 @@ $(document).ready(function(){
     description: "He wasn't the nicest guy, but he sure was passionate.",
     likes:  871,
     img: 'images/steve-jobs.jpg'
+  },
+  {
+    title: "Senecca: Health, Happiness, and Stoicism",
+    uploadinfo: "Philosopher 1/1/16",
+    views:  "100 million",
+    description: "A refreshing look on happiness as a skill and mindset to achieve.",
+    likes:  1258,
+    img: 'images/senecca.jpg'
   }
   ];
   //COMMENTS: Box Data
