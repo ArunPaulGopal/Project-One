@@ -146,8 +146,8 @@ $(document).ready(function(){
     var utext = document.createTextNode(ucontent);
     var title = document.createElement('h1');
     title.className=("media-heading");
-    var tcontent = object.title;
-    var ttext = document.createTextNode(tcontent);
+    var titlecontent = object.title;
+    var titletext = document.createTextNode(titlecontent);
     var mediabody = document.createElement('div');
     mediabody.className= ("media-body");
     var paragraph = document.createElement('p');
@@ -156,7 +156,7 @@ $(document).ready(function(){
     // Appending body variables
     uploadinfo.appendChild(utext);
     paragraph.appendChild(text);
-    title.appendChild(ttext);
+    title.appendChild(titletext);
     mediabody.appendChild(title);
     mediabody.appendChild(paragraph);
     mediabody.appendChild(uploadinfo);
