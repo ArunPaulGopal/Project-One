@@ -3,26 +3,35 @@ $(document).ready(function(){
   $('#logo').click(function(){
     $(this).fadeOut("slow");
   })
-// RECOMMENDATIONS FUNCTIONALITY SECTION START
+// RECOMMENDATIONS: SECTION START
   // RECOMMENDATIONS: Data
   var recommendations = [
     {
       title: "Recommendation 1",
       description: "TBD",
-      img: 'images/logo.jpg'
+      img: 'images/logo.jpg',
+      id: "R1"
     },
     {
       title: "Recommendation 2",
       description: "TBD",
-      img: 'images/logo.jpg'
+      img: 'images/logo.jpg',
+      id: "R2"
     },
     {
       title: "Recommendation 3",
       description: "TBD",
-      img: 'images/logo.jpg'
+      img: 'images/logo.jpg',
+      id: "R3"
     }
   ]
-// COMMENTS FUNCTIONALITY SECTION START
+  // RECOMMENDATIONS: Function to build the grid
+    //Get variables ready to be appended
+    //ID will be in the array, use that property to set the right ID for link
+
+    //Append variables to the recommendations ID
+
+// COMMENTS: SECTION START
   //COMMENTS: Box Data
   var commenthistory = [
     {
@@ -98,7 +107,7 @@ $(document).ready(function(){
     $('.thumb').click(function(){
       $(this).toggleClass("blue");
     })
-// SEARCH FUNCTIONALITY SECTION START
+// SEARCH RESULTS: SECTION START
     // SEARCH RESULTS: Data
     var videoresults = [
     {
