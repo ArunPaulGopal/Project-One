@@ -7,7 +7,6 @@ $(document).ready(function(){
   $('.thumb').click(function(){
     $(this).toggleClass("blue");
   })
-
   // SEARCH RESULTS: Data
   var videoresults = [
   {
@@ -165,8 +164,6 @@ $(document).ready(function(){
     media.appendChild(mediabody);
     results.appendChild(media);
   };
-
-
   var results = document.getElementById('results');
   // SEARCH RESULTS: Execute the function upon search.
   // Also added in Video Toggling functionality here.
@@ -180,7 +177,6 @@ $(document).ready(function(){
         $('#toggleclass').click(function(){
           $('#speech').toggleClass("hide");
         })
-
       }
     }
   });
