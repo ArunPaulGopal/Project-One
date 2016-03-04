@@ -132,7 +132,7 @@ $(document).ready(function(){
     medialeft.className= ("media-left");
     var image = document.createElement('img');
     image.setAttribute('src',object.img);
-    image.setAttribute('class','img-rounded toggleclass');
+    image.setAttribute('class','img-rounded togglevideo');
     var inode = document.createTextNode(icontent);
     var icontent = object.img;
     // Appending image variables
@@ -173,7 +173,7 @@ $(document).ready(function(){
       for (var i=0; i<videoresults.length; i++){
         myFunction(videoresults[i]);
         // Toggle video on
-        $('.toggleclass').click(function(){
+        $('.togglevideo').click(function(){
           $('#speech').toggleClass("hide");
         })
       }
