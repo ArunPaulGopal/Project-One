@@ -142,8 +142,8 @@ $(document).ready(function(){
     media.appendChild(medialeft);
     // Body: Getting variables ready for Title, Description, Username,Upload Date, Likes, and Views
     var uploadinfo = document.createElement('p');
-    var ucontent = object.uploadinfo;
-    var utext = document.createTextNode(ucontent);
+    var uploadcontent = object.uploadinfo;
+    var uploadtext = document.createTextNode(uploadcontent);
     var title = document.createElement('h1');
     title.className=("media-heading");
     var titlecontent = object.title;
@@ -154,7 +154,7 @@ $(document).ready(function(){
     var content = object.description;
     var text = document.createTextNode(content);
     // Appending body variables
-    uploadinfo.appendChild(utext);
+    uploadinfo.appendChild(uploadtext);
     paragraph.appendChild(text);
     title.appendChild(titletext);
     mediabody.appendChild(title);
