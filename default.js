@@ -3,10 +3,11 @@ $(document).ready(function(){
   $('#logo').click(function(){
     $(this).fadeOut("slow");
   })
-//Turn Thumbs blue when clicked
+//Turn comment Thumbs blue when clicked
   $('.thumb').click(function(){
     $(this).toggleClass("blue");
   })
+
   // SEARCH RESULTS: Data
   var videoresults = [
   {
@@ -164,6 +165,8 @@ $(document).ready(function(){
     media.appendChild(mediabody);
     results.appendChild(media);
   };
+
+
   var results = document.getElementById('results');
   // SEARCH RESULTS: Execute the function upon search.
   // Also added in Video Toggling functionality here.
@@ -173,12 +176,11 @@ $(document).ready(function(){
     if (searchtext.toLowerCase() === "motivation") {
       for (var i=0; i<videoresults.length; i++){
         myFunction(videoresults[i]);
-        // Removes class, was originally toggle
-      var toggleclass = document.getElementById('toggleclass');
-      toggleclass.addEventListener('click',function(e) {
-        var speech = document.getElementById('speech');
-        speech.classList.remove('hide');
-        });
+        // Toggle video on
+        $('#toggleclass').click(function(){
+          $('#speech').toggleClass("hide");
+        })
+
       }
     }
   });
