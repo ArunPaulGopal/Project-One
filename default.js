@@ -1,6 +1,11 @@
 $(document).ready(function(){
+//Make logo dissapear when clicked, first jquery test
   $('#logo').click(function(){
     $(this).fadeOut("slow");
+  })
+//Turn Thumbs blue when clicked
+  $('.thumb').click(function(){
+    $(this).addClass("blue");
   })
   // SEARCH RESULTS: Data
   var videoresults = [
