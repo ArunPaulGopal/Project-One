@@ -28,7 +28,16 @@ $(document).ready(function(){
   // RECOMMENDATIONS: Function to build the grid
     //Get variables ready to be appended
     //ID will be in the array, use that property to set the right ID for link
-
+    /*
+    function recommendBuild(object) {
+      var description
+      var title
+      var image
+      var buttonid
+      var media = document.createElement('div');
+      var
+    }
+    */
     //Append variables to the recommendations ID
 
 // COMMENTS: SECTION START
@@ -48,20 +57,23 @@ $(document).ready(function(){
     }
   ]
   // COMMENTS: Function to build the history
+  //Indents below indicate components that are needed to build final variables.
   function commentBuilder(object) {
+    //Build variables for comment history
     var image = document.createElement('img');
-    image.setAttribute('src',object.img);
-    image.setAttribute('class','img-circle');
+      image.setAttribute('src',object.img);
+      image.setAttribute('class','img-circle');
     var medialeft = document.createElement('div');
-    medialeft.setAttribute('class','media-left');
-    var text = object.comment;
-    var node = document.createTextNode(text);
+      medialeft.setAttribute('class','media-left');
     var paragraph = document.createElement('p');
+      var text = object.comment;
+      var node = document.createTextNode(text);
     var mediabody = document.createElement('div');
-    mediabody.setAttribute('class','media-body');
+      mediabody.setAttribute('class','media-body');
     var media = document.createElement('div');
-    var history = document.getElementById('history')
-    media.setAttribute('class','media');
+      media.setAttribute('class','media');
+    var history = document.getElementById('history');
+    //Append comment history variables
     medialeft.appendChild(image);
     paragraph.appendChild(node);
     mediabody.appendChild(paragraph);
@@ -69,7 +81,7 @@ $(document).ready(function(){
     media.appendChild(mediabody);
     history.appendChild(media);
   };
-  // COMMENTS: Call the history builder function when user searches
+  // COMMENTS: Call the comment history builder function when user searches
   searchresults.addEventListener('click',function(e) {
       for (var i=0; i<commenthistory.length; i++){
         commentBuilder(commenthistory[i]);
@@ -80,20 +92,20 @@ $(document).ready(function(){
     // Create variables to be appended
     var submit = document.getElementById('submit');
     var commentbox = document.getElementById('comment');
-    var commenttext = commentbox.value;
+      var commenttext = commentbox.value;
     var attr = document.createElement('a');
     var image = document.createElement('img');
-    image.setAttribute('src','images/profile.jpg');
-    image.setAttribute('class','img-circle');
-    var text = document.createTextNode(commenttext);
+      image.setAttribute('src','images/profile.jpg');
+      image.setAttribute('class','img-circle');
     var para = document.createElement('p');
-    var history = document.getElementById('history');
+      var text = document.createTextNode(commenttext);
     var mediabody = document.createElement('div');
-    mediabody.className = ('media-body');
+      mediabody.className = ('media-body');
     var medialeft = document.createElement('div');
-    medialeft.className = ('media-left');
+      medialeft.className = ('media-left');
     var media = document.createElement('div');
-    media.className = ('media');
+      media.className = ('media');
+    var history = document.getElementById('history');
     // Append variables
     para.appendChild(text);
     attr.appendChild(image);
@@ -154,17 +166,17 @@ $(document).ready(function(){
   // SEARCH RESULTS: Function for creation
   function myFunction(object){
     // Getting variables ready for images
-    var media = document.createElement('div')
-    media.className= ('media');
     var attribute = document.createElement('a');
-    attribute.setAttribute('href','#speech');
-    var medialeft = document.createElement('div');
-    medialeft.className= ("media-left");
+      attribute.setAttribute('href','#speech');
     var image = document.createElement('img');
-    image.setAttribute('src',object.img);
-    image.setAttribute('class','img-rounded togglevideo');
-    var inode = document.createTextNode(icontent);
-    var icontent = object.img;
+      image.setAttribute('src',object.img);
+      image.setAttribute('class','img-rounded togglevideo');
+        var inode = document.createTextNode(icontent);
+        var icontent = object.img;
+    var medialeft = document.createElement('div');
+      medialeft.className= ("media-left");
+    var media = document.createElement('div')
+      media.className= ('media');
     // Appending image variables
     image.appendChild(inode);
     attribute.appendChild(image)
@@ -172,17 +184,17 @@ $(document).ready(function(){
     media.appendChild(medialeft);
     // Body: Getting variables ready for Title, Description, Username,Upload Date, Likes, and Views
     var uploadinfo = document.createElement('p');
-    var uploadcontent = object.uploadinfo;
-    var uploadtext = document.createTextNode(uploadcontent);
+      var uploadtext = document.createTextNode(uploadcontent);
+        var uploadcontent = object.uploadinfo;
     var title = document.createElement('h1');
-    title.className=("media-heading");
-    var titlecontent = object.title;
-    var titletext = document.createTextNode(titlecontent);
-    var mediabody = document.createElement('div');
-    mediabody.className= ("media-body");
+      title.className=("media-heading");
+      var titletext = document.createTextNode(titlecontent);
+        var titlecontent = object.title;
     var paragraph = document.createElement('p');
-    var content = object.description;
-    var text = document.createTextNode(content);
+      var text = document.createTextNode(content);
+        var content = object.description;
+    var mediabody = document.createElement('div');
+      mediabody.className= ("media-body");
     // Appending body variables
     uploadinfo.appendChild(uploadtext);
     paragraph.appendChild(text);
