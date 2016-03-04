@@ -88,7 +88,7 @@ $(document).ready(function(){
     history.appendChild(media);
   };
   // COMMENTS: Call the history builder function when user searches
-  searchr.addEventListener('click',function(e) {
+  searchresults.addEventListener('click',function(e) {
       for (var i=0; i<commenthistory.length; i++){
         commentBuilder(commenthistory[i]);
       }
@@ -132,8 +132,7 @@ $(document).ready(function(){
     medialeft.className= ("media-left");
     var image = document.createElement('img');
     image.setAttribute('src',object.img);
-    image.setAttribute('id','toggleclass');
-    image.setAttribute('class','img-rounded');
+    image.setAttribute('class','img-rounded toggleclass');
     var inode = document.createTextNode(icontent);
     var icontent = object.img;
     // Appending image variables
@@ -167,14 +166,14 @@ $(document).ready(function(){
   var results = document.getElementById('results');
   // SEARCH RESULTS: Execute the function upon search.
   // Also added in Video Toggling functionality here.
-  searchr.addEventListener('click',function(e) {
+  searchresults.addEventListener('click',function(e) {
     var searchbox = document.getElementById('searchtext');
     var searchtext = searchbox.value;
     if (searchtext.toLowerCase() === "motivation") {
       for (var i=0; i<videoresults.length; i++){
         myFunction(videoresults[i]);
         // Toggle video on
-        $('#toggleclass').click(function(){
+        $('.toggleclass').click(function(){
           $('#speech').toggleClass("hide");
         })
       }
