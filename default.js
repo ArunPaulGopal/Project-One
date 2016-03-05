@@ -28,7 +28,7 @@ $(document).ready(function(){
   // RECOMMENDATIONS: Function to build the grid
     //Get variables ready to be appended
     //ID will be in the array, use that property to set the right ID for link
-    /*
+/*
     function recommendBuild(object) {
       var description
       var title
@@ -65,9 +65,9 @@ $(document).ready(function(){
       image.setAttribute('class','img-circle');
     var medialeft = document.createElement('div');
       medialeft.setAttribute('class','media-left');
-    var paragraph = document.createElement('p');
-      var text = object.comment;
+    var text = object.comment;
       var node = document.createTextNode(text);
+        var paragraph = document.createElement('p');
     var mediabody = document.createElement('div');
       mediabody.setAttribute('class','media-body');
     var media = document.createElement('div');
@@ -93,12 +93,12 @@ $(document).ready(function(){
     var submit = document.getElementById('submit');
     var commentbox = document.getElementById('comment');
       var commenttext = commentbox.value;
+        var text = document.createTextNode(commenttext);
     var attr = document.createElement('a');
     var image = document.createElement('img');
       image.setAttribute('src','images/profile.jpg');
       image.setAttribute('class','img-circle');
     var para = document.createElement('p');
-      var text = document.createTextNode(commenttext);
     var mediabody = document.createElement('div');
       mediabody.className = ('media-body');
     var medialeft = document.createElement('div');
@@ -168,11 +168,11 @@ $(document).ready(function(){
     // Getting variables ready for images
     var attribute = document.createElement('a');
       attribute.setAttribute('href','#speech');
-    var image = document.createElement('img');
-      image.setAttribute('src',object.img);
-      image.setAttribute('class','img-rounded togglevideo');
-        var inode = document.createTextNode(icontent);
-        var icontent = object.img;
+    var icontent = object.img;
+      var inode = document.createTextNode(icontent);
+        var image = document.createElement('img');
+          image.setAttribute('src',object.img);
+          image.setAttribute('class','img-rounded togglevideo');
     var medialeft = document.createElement('div');
       medialeft.className= ("media-left");
     var media = document.createElement('div')
@@ -183,16 +183,16 @@ $(document).ready(function(){
     medialeft.appendChild(attribute);
     media.appendChild(medialeft);
     // Body: Getting variables ready for Title, Description, Username,Upload Date, Likes, and Views
-    var uploadinfo = document.createElement('p');
+    var uploadcontent = object.uploadinfo;
       var uploadtext = document.createTextNode(uploadcontent);
-        var uploadcontent = object.uploadinfo;
-    var title = document.createElement('h1');
-      title.className=("media-heading");
+        var uploadinfo = document.createElement('p');
+    var titlecontent = object.title;
       var titletext = document.createTextNode(titlecontent);
-        var titlecontent = object.title;
-    var paragraph = document.createElement('p');
+        var title = document.createElement('h1');
+          title.className=("media-heading");
+    var content = object.description;
       var text = document.createTextNode(content);
-        var content = object.description;
+        var paragraph = document.createElement('p');
     var mediabody = document.createElement('div');
       mediabody.className= ("media-body");
     // Appending body variables
