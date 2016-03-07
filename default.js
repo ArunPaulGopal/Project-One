@@ -39,7 +39,6 @@ $(document).ready(function(){
     }
     */
     //Append variables to the recommendations ID
-
 // COMMENTS: SECTION START
   //COMMENTS: Box Data
   var commenthistory = [
@@ -122,94 +121,74 @@ $(document).ready(function(){
 // SEARCH RESULTS: SECTION START
     // SEARCH RESULTS: Data
     var videoresults = [
-    {
-      title: "Neil Gaiman: 2012 Commencement Speech",
-      uploadinfo: "Secret Art Society  12/12/12",
-      views:  "39 million",
-      description: "A reminder not to forget why you do what you do.",
-      likes:  871,
-      img: 'images/neil-gaiman.jpg',
-      videoid: "speech",
-      url: "https://www.youtube.com/embed/plWexCID-kA",
-      buttonid: "togglespeech"
-    },
-    {
-      title: "Will Smith: Running and Reading",
-      uploadinfo: "TheFreshPrince 1/12/15",
-      views:  "42 million",
-      description: "Simple truths from a beloved actor.",
-      likes:  871,
-      img: 'images/will-smith.jpg',
-      videoid: "reading",
-      url: "https://www.youtube.com/embed/plWexCID-kA",
-      buttonid: "togglereading"
-    },
-    {
-      title: "Inside the Superhman World of the Iceman",
-      uploadinfo: "VICE 2/26/15",
-      views:  "98 million",
-      description: "Question what you believe is possible.",
-      likes:  871,
-      img: 'images/wim-hof.jpg',
-      videoid: "iceman",
-      url: "https://www.youtube.com/embed/plWexCID-kA",
-      buttonid: "toggleiceman"
-
-    },
-    {
-      title: "Steve Jobs: 2005 Stanford Commencement",
-      uploadinfo: "APPLE INC. 2/26/14",
-      views:  "95 million",
-      description: "He wasn't the nicest guy, but he sure was passionate.",
-      likes:  871,
-      img: 'images/steve-jobs.jpg',
-      videoid: "Jobs",
-      url: "https://www.youtube.com/embed/plWexCID-kA",
-      buttonid: "togglejobs"
-    },
-    {
-      title: "Senecca: Health, Happiness, and Stoicism",
-      uploadinfo: "Philosopher 1/1/16",
-      views:  "100 million",
-      description: "A refreshing look on happiness as a skill and mindset to achieve.",
-      likes:  1258,
-      img: 'images/senecca.jpg',
-      videoid: "senecca",
-      url: "https://www.youtube.com/embed/plWexCID-kA",
-      buttonid: "togglesenecca"
-    }
+      {
+        title: "Inside the Superhman World of the Iceman",
+        uploadinfo: "VICE 2/26/15",
+        views:  "98 million",
+        description: "Question what you believe is possible.",
+        likes:  871,
+        img: 'images/wim-hof.jpg',
+        videoid: "iceman",
+        url: "https://www.youtube.com/embed/VaMjhwFE1Zw",
+        buttonid: "toggleiceman"
+      },
+      {
+        title: "Neil Gaiman: 2012 Commencement Speech",
+        uploadinfo: "Secret Art Society  12/12/12",
+        views:  "39 million",
+        description: "A reminder not to forget why you do what you do.",
+        likes:  871,
+        img: 'images/neil-gaiman.jpg',
+        videoid: "speech",
+        url: "https://www.youtube.com/embed/plWexCID-kA",
+        buttonid: "togglespeech"
+      },
+      {
+        title: "Steve Jobs: 2005 Stanford Commencement",
+        uploadinfo: "APPLE INC. 2/26/14",
+        views:  "95 million",
+        description: "He wasn't the nicest guy, but he sure was passionate.",
+        likes:  871,
+        img: 'images/steve-jobs.jpg',
+        videoid: "stevejobs",
+        url: "https://www.youtube.com/embed/D1R-jKKp3NA",
+        buttonid: "togglejobs"
+      },
+      {
+        title: "Senecca: Health, Happiness, and Stoicism",
+        uploadinfo: "Philosopher 1/1/16",
+        views:  "100 million",
+        description: "A refreshing look on happiness as a skill and mindset to achieve.",
+        likes:  1258,
+        img: 'images/senecca.jpg',
+        videoid: "senecca",
+        url: "https://www.youtube.com/embed/EYWEAa-D5vM",
+        buttonid: "togglesenecca"
+      }
     ];
   // SEARCH RESULTS: Create hidden videos upon search
-
   function videoBuilder(object){
     //Create variables for video data
     var iframe = document.createElement('iframe');
       iframe.setAttribute('class','embed-responsive-item');
       iframe.setAttribute('src',object.url);
     var videoDiv = document.createElement('div');
-      videoDiv.setAttribute('class','col-md-12 embed-responsive embed-responsive-16by9 hide')
+      videoDiv.setAttribute('class','col-md-12 embed-responsive embed-responsive-16by9')
       videoDiv.setAttribute('id',object.videoid);
     var videos = document.getElementById('videos');
     //Append variables and create hidden videos
     videoDiv.appendChild(iframe);
     videos.appendChild(videoDiv);
-  }
-  //Upon search, use function to build hidden videos
-  searchresults.addEventListener('click',function(e) {
-      for (var i=0; i<videoresults.length; i++){
-        videoBuilder(videoresults[i]);
-      }
-    });
+  };
   // SEARCH RESULTS: Function for creation
   function resultBuilder(object){
     // Getting variables ready for images
     var attribute = document.createElement('a');
-      attribute.setAttribute('href','#videos');
     var icontent = object.img;
       var inode = document.createTextNode(icontent);
         var image = document.createElement('img');
           image.setAttribute('src',object.img);
-          image.setAttribute('class','img-rounded togglevideo');
+          image.setAttribute('class','img-rounded');
     var medialeft = document.createElement('div');
       medialeft.className= ("media-left");
     var media = document.createElement('div')
@@ -246,6 +225,13 @@ $(document).ready(function(){
     results.appendChild(media);
   };
   var results = document.getElementById('results');
+
+  //Upon search, use function to build hidden videos
+  searchresults.addEventListener('click',function(e) {
+      for (var i=0; i<videoresults.length; i++){
+        videoBuilder(videoresults[i]);
+      }
+    });
   // SEARCH RESULTS: Execute the function upon search.
   // Also added in Video Toggling functionality here.
   searchresults.addEventListener('click',function(e) {
@@ -254,11 +240,19 @@ $(document).ready(function(){
     if (searchtext.toLowerCase() === "motivation") {
       for (var i=0; i<videoresults.length; i++){
         resultBuilder(videoresults[i]);
-        // Toggle video on
-        $('.togglevideo').click(function(){
-          $('#speech').toggleClass("hide");
-          $('#comments').toggleClass("hide");
-        })
+        // Toggle video functionality
+      $('#toggleiceman').click(function(){
+        $('#iceman').toggleClass("hide");
+      });
+      $('#togglespeech').click(function(){
+        $('#speech').toggleClass("hide");
+      });
+      $('#togglejobs').click(function(){
+        $('#stevejobs').toggleClass("hide");
+      });
+      $('#togglesenecca').click(function(){
+        $('#senecca').toggleClass("hide");
+      });
       }
     }
   });
