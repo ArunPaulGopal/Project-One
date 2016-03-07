@@ -60,17 +60,17 @@ $(document).ready(function(){
   function commentBuilder(object) {
     //Build variables for comment history
     var image = document.createElement('img');
-      image.setAttribute('src',object.img);
-      image.setAttribute('class','img-circle');
+    image.setAttribute('src',object.img);
+    image.setAttribute('class','img-circle');
     var medialeft = document.createElement('div');
-      medialeft.setAttribute('class','media-left');
+    medialeft.setAttribute('class','media-left');
     var text = object.comment;
-      var node = document.createTextNode(text);
-        var paragraph = document.createElement('p');
+    var node = document.createTextNode(text);
+    var paragraph = document.createElement('p');
     var mediabody = document.createElement('div');
-      mediabody.setAttribute('class','media-body');
+    mediabody.setAttribute('class','media-body');
     var media = document.createElement('div');
-      media.setAttribute('class','media');
+    media.setAttribute('class','media');
     var history = document.getElementById('history');
     //Append comment history variables
     medialeft.appendChild(image);
@@ -91,19 +91,19 @@ $(document).ready(function(){
     // Create variables to be appended
     var submit = document.getElementById('submit');
     var commentbox = document.getElementById('comment');
-      var commenttext = commentbox.value;
-        var text = document.createTextNode(commenttext);
+    var commenttext = commentbox.value;
+    var text = document.createTextNode(commenttext);
     var attr = document.createElement('a');
     var image = document.createElement('img');
-      image.setAttribute('src','images/profile.jpg');
-      image.setAttribute('class','img-circle');
+    image.setAttribute('src','images/profile.jpg');
+    image.setAttribute('class','img-circle');
     var para = document.createElement('p');
     var mediabody = document.createElement('div');
-      mediabody.className = ('media-body');
+    mediabody.className = ('media-body');
     var medialeft = document.createElement('div');
-      medialeft.className = ('media-left');
+    medialeft.className = ('media-left');
     var media = document.createElement('div');
-      media.className = ('media');
+    media.className = ('media');
     var history = document.getElementById('history');
     // Append variables
     para.appendChild(text);
@@ -170,11 +170,11 @@ $(document).ready(function(){
   function videoBuilder(object){
     //Create variables for video data
     var iframe = document.createElement('iframe');
-      iframe.setAttribute('class','embed-responsive-item');
-      iframe.setAttribute('src',object.url);
+    iframe.setAttribute('class','embed-responsive-item');
+    iframe.setAttribute('src',object.url);
     var videoDiv = document.createElement('div');
-      videoDiv.setAttribute('class','col-md-12 embed-responsive embed-responsive-16by9')
-      videoDiv.setAttribute('id',object.videoid);
+    videoDiv.setAttribute('class','col-md-12 embed-responsive embed-responsive-16by9 hide')
+    videoDiv.setAttribute('id',object.videoid);
     var videos = document.getElementById('videos');
     //Append variables and create hidden videos
     videoDiv.appendChild(iframe);
@@ -185,14 +185,14 @@ $(document).ready(function(){
     // Getting variables ready for images
     var attribute = document.createElement('a');
     var icontent = object.img;
-      var inode = document.createTextNode(icontent);
-        var image = document.createElement('img');
-          image.setAttribute('src',object.img);
-          image.setAttribute('class','img-rounded');
+    var inode = document.createTextNode(icontent);
+    var image = document.createElement('img');
+    image.setAttribute('src',object.img);
+    image.setAttribute('class','img-rounded');
     var medialeft = document.createElement('div');
-      medialeft.className= ("media-left");
+    medialeft.className= ("media-left");
     var media = document.createElement('div')
-      media.className= ('media');
+    media.className= ('media');
     // Appending image variables
     image.appendChild(inode);
     attribute.appendChild(image)
@@ -200,19 +200,19 @@ $(document).ready(function(){
     media.appendChild(medialeft);
     // Body: Getting variables ready for Title, Description, Username,Upload Date, Likes, and Views
     var button = document.createElement('button');
-     button.setAttribute('id',object.buttonid);
+    button.setAttribute('id',object.buttonid);
     var uploadcontent = object.uploadinfo;
-      var uploadtext = document.createTextNode(uploadcontent);
-        var uploadinfo = document.createElement('p');
+    var uploadtext = document.createTextNode(uploadcontent);
+    var uploadinfo = document.createElement('p');
     var titlecontent = object.title;
-      var titletext = document.createTextNode(titlecontent);
-        var title = document.createElement('h1');
-          title.className=("media-heading");
+    var titletext = document.createTextNode(titlecontent);
+    var title = document.createElement('h1');
+    title.className=("media-heading");
     var content = object.description;
-      var text = document.createTextNode(content);
-        var paragraph = document.createElement('p');
+    var text = document.createTextNode(content);
+    var paragraph = document.createElement('p');
     var mediabody = document.createElement('div');
-      mediabody.className= ("media-body");
+    mediabody.className= ("media-body");
     // Appending body variables
     uploadinfo.appendChild(uploadtext);
     paragraph.appendChild(text);
@@ -225,7 +225,6 @@ $(document).ready(function(){
     results.appendChild(media);
   };
   var results = document.getElementById('results');
-
   //Upon search, use function to build hidden videos
   searchresults.addEventListener('click',function(e) {
       for (var i=0; i<videoresults.length; i++){
@@ -240,20 +239,20 @@ $(document).ready(function(){
     if (searchtext.toLowerCase() === "motivation") {
       for (var i=0; i<videoresults.length; i++){
         resultBuilder(videoresults[i]);
-        // Toggle video functionality
-      $('#toggleiceman').click(function(){
-        $('#iceman').toggleClass("hide");
-      });
-      $('#togglespeech').click(function(){
-        $('#speech').toggleClass("hide");
-      });
-      $('#togglejobs').click(function(){
-        $('#stevejobs').toggleClass("hide");
-      });
-      $('#togglesenecca').click(function(){
-        $('#senecca').toggleClass("hide");
-      });
-      }
     }
+    }
+    // Toggle video functionality
+    $('#toggleiceman').click(function(){
+      $('#iceman').toggleClass("hide");
+    });
+    $('#togglespeech').click(function(){
+      $('#speech').toggleClass("hide");
+    });
+    $('#togglejobs').click(function(){
+      $('#stevejobs').toggleClass("hide");
+    });
+    $('#togglesenecca').click(function(){
+      $('#senecca').toggleClass("hide");
+    });
   });
 });
