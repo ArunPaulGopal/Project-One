@@ -128,7 +128,10 @@ $(document).ready(function(){
       views:  "39 million",
       description: "A reminder not to forget why you do what you do.",
       likes:  871,
-      img: 'images/neil-gaiman.jpg'
+      img: 'images/neil-gaiman.jpg',
+      videoid: "speech",
+      url: "https://www.youtube.com/embed/plWexCID-kA",
+      buttonid: "togglespeech"
     },
     {
       title: "Will Smith: Running and Reading",
@@ -136,7 +139,10 @@ $(document).ready(function(){
       views:  "42 million",
       description: "Simple truths from a beloved actor.",
       likes:  871,
-      img: 'images/will-smith.jpg'
+      img: 'images/will-smith.jpg',
+      videoid: "reading",
+      url: "https://www.youtube.com/embed/plWexCID-kA",
+      buttonid: "togglereading"
     },
     {
       title: "Inside the Superhman World of the Iceman",
@@ -144,7 +150,11 @@ $(document).ready(function(){
       views:  "98 million",
       description: "Question what you believe is possible.",
       likes:  871,
-      img: 'images/wim-hof.jpg'
+      img: 'images/wim-hof.jpg',
+      videoid: "iceman",
+      url: "https://www.youtube.com/embed/plWexCID-kA",
+      buttonid: "toggleiceman"
+
     },
     {
       title: "Steve Jobs: 2005 Stanford Commencement",
@@ -152,7 +162,10 @@ $(document).ready(function(){
       views:  "95 million",
       description: "He wasn't the nicest guy, but he sure was passionate.",
       likes:  871,
-      img: 'images/steve-jobs.jpg'
+      img: 'images/steve-jobs.jpg',
+      videoid: "Jobs",
+      url: "https://www.youtube.com/embed/plWexCID-kA",
+      buttonid: "togglejobs"
     },
     {
       title: "Senecca: Health, Happiness, and Stoicism",
@@ -160,14 +173,38 @@ $(document).ready(function(){
       views:  "100 million",
       description: "A refreshing look on happiness as a skill and mindset to achieve.",
       likes:  1258,
-      img: 'images/senecca.jpg'
+      img: 'images/senecca.jpg',
+      videoid: "senecca",
+      url: "https://www.youtube.com/embed/plWexCID-kA",
+      buttonid: "togglesenecca"
     }
     ];
+  // SEARCH RESULTS: Create hidden videos upon search
+
+  function videoBuilder(object){
+    //Create variables for video data
+    var iframe = document.createElement('iframe');
+      iframe.setAttribute('class','embed-responsive-item');
+      iframe.setAttribute('src',object.url);
+    var videoDiv = document.createElement('div');
+      videoDiv.setAttribute('class','col-md-12 embed-responsive embed-responsive-16by9 hide')
+      videoDiv.setAttribute('id',object.videoid);
+    var videos = document.getElementById('videos');
+    //Append variables and create hidden videos
+    videoDiv.appendChild(iframe);
+    videos.appendChild(videoDiv);
+  }
+  //Upon search, use function to build hidden videos
+  searchresults.addEventListener('click',function(e) {
+      for (var i=0; i<videoresults.length; i++){
+        videoBuilder(videoresults[i]);
+      }
+    });
   // SEARCH RESULTS: Function for creation
-  function myFunction(object){
+  function resultBuilder(object){
     // Getting variables ready for images
     var attribute = document.createElement('a');
-      attribute.setAttribute('href','#speech');
+      attribute.setAttribute('href','#videos');
     var icontent = object.img;
       var inode = document.createTextNode(icontent);
         var image = document.createElement('img');
@@ -183,6 +220,8 @@ $(document).ready(function(){
     medialeft.appendChild(attribute);
     media.appendChild(medialeft);
     // Body: Getting variables ready for Title, Description, Username,Upload Date, Likes, and Views
+    var button = document.createElement('button');
+     button.setAttribute('id',object.buttonid);
     var uploadcontent = object.uploadinfo;
       var uploadtext = document.createTextNode(uploadcontent);
         var uploadinfo = document.createElement('p');
@@ -198,6 +237,7 @@ $(document).ready(function(){
     // Appending body variables
     uploadinfo.appendChild(uploadtext);
     paragraph.appendChild(text);
+    paragraph.appendChild(button);
     title.appendChild(titletext);
     mediabody.appendChild(title);
     mediabody.appendChild(paragraph);
@@ -213,10 +253,11 @@ $(document).ready(function(){
     var searchtext = searchbox.value;
     if (searchtext.toLowerCase() === "motivation") {
       for (var i=0; i<videoresults.length; i++){
-        myFunction(videoresults[i]);
+        resultBuilder(videoresults[i]);
         // Toggle video on
         $('.togglevideo').click(function(){
           $('#speech').toggleClass("hide");
+          $('#comments').toggleClass("hide");
         })
       }
     }
