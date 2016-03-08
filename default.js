@@ -5,21 +5,21 @@ $(document).ready(function(){
   })
 // RECOMMENDATIONS: SECTION START
   // RECOMMENDATIONS: Data
-  var recommendations = [
+  var recoresults = [
     {
-      title: "Recommendation 1",
+      recotitle: "Recommendation 1",
       description: "TBD",
       img: 'images/logo.jpg',
       id: "R1"
     },
     {
-      title: "Recommendation 2",
+      recotitle: "Recommendation 2",
       description: "TBD",
       img: 'images/logo.jpg',
       id: "R2"
     },
     {
-      title: "Recommendation 3",
+      recotitle: "Recommendation 3",
       description: "TBD",
       img: 'images/logo.jpg',
       id: "R3"
@@ -28,25 +28,39 @@ $(document).ready(function(){
   // RECOMMENDATIONS: Function to build the grid
     //Get variables ready to be appended
     //ID will be in the array, use that property to set the right ID for link
-    function recommendBuild(object) {
+    function recommendBuilder(object) {
+      var textcontent = object.description;
       var paragraph = document.createElement('p');
       var paragraphtext = document.createTextNode(textcontent);
-      var textcontent = object.description;
+      var titlecontent = object.recotitle;
       var title = document.createElement('h3');
       var titletext = document.createTextNode(titlecontent);
-      var titlecontent = object.title;
       var image = document.createElement('img');
       image.setAttribute('src',object.img);
       image.setAttribute('class','img-rounded');
       var media = document.createElement('div');
       media.setAttribute('class','media');
       var mediabody = document.createElement('div');
-      media.setAttribute('class','media-body');
+      mediabody.setAttribute('class','media-body');
       var medialeft = document.createElement('div');
-      media.setAttribute('class','media-left');
+      medialeft.setAttribute('class','media-left');
+      var target = document.getElementById('recommendations')
+      //Append variables to the recommendations ID
+      medialeft.appendChild(image);
+      paragraph.appendChild(paragraphtext);
+      title.appendChild(titletext);
+      mediabody.appendChild(title);
+      mediabody.appendChild(paragraph);
+      media.appendChild(medialeft);
+      media.appendChild(mediabody);
+      target.appendChild(media);
+      console.log(titlecontent);
+      console.log(titletext);
     }
-    //Append variables to the recommendations ID
-
+    //RECOMMENDATIONS: Run function right away rather than upon click
+        for (var i=0; i<recoresults.length; i++){
+          recommendBuilder(recoresults[i]);
+        }
 // COMMENTS: SECTION START
   //COMMENTS: Box Data
   var commenthistory = [
