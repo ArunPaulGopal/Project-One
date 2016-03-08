@@ -126,6 +126,7 @@ $(document).ready(function(){
     media.className = ('media');
     var columndiv = document.createElement('div');
     columndiv.setAttribute('class','col-md-3');
+    // Uses the data from video selected by user to help navigate comment to correct area
     var target = document.getElementById('submit').getAttribute('data-comments');
     var appendto = document.getElementById(target);
     // Append variables
@@ -185,7 +186,7 @@ $(document).ready(function(){
         title: "Senecca: Health, Happiness, and Stoicism",
         uploadinfo: "Philosopher 1/1/16",
         views:  "100 million",
-        description: "A refreshing look on happiness as a skill and mindset to achieve.",
+        description: "Happiness: A skill and mindset to achieve.",
         likes:  1258,
         img: 'images/senecca.jpg',
         videoid: "senecca",
@@ -242,7 +243,7 @@ $(document).ready(function(){
     var uploadinfo = document.createElement('p');
     var titlecontent = object.title;
     var titletext = document.createTextNode(titlecontent);
-    var title = document.createElement('h1');
+    var title = document.createElement('h3');
     title.className=("media-heading");
     var content = object.description;
     var text = document.createTextNode(content);
@@ -257,8 +258,8 @@ $(document).ready(function(){
     paragraph.appendChild(button);
     title.appendChild(titletext);
     mediabody.appendChild(title);
-    mediabody.appendChild(paragraph);
     mediabody.appendChild(uploadinfo);
+    mediabody.appendChild(paragraph);
     media.appendChild(mediabody);
     results.appendChild(media);
   };
