@@ -124,7 +124,10 @@ $(document).ready(function(){
     medialeft.className = ('media-left');
     var media = document.createElement('div');
     media.className = ('media');
-    var history = document.getElementById('history');
+    var columndiv = document.createElement('div');
+    columndiv.setAttribute('class','col-md-3');
+    var target = document.getElementById('submit').getAttribute('data-comments');
+    var appendto = document.getElementById(target);
     // Append variables
     para.appendChild(text);
     attr.appendChild(image);
@@ -132,7 +135,8 @@ $(document).ready(function(){
     medialeft.appendChild(attr);
     media.appendChild(medialeft);
     media.appendChild(mediabody);
-    history.appendChild(media);
+    columndiv.appendChild(media);
+    appendto.appendChild(columndiv);
   });
   //COMMENTS: Turn thumbs blue when clicked
     $('.thumb').click(function(){
@@ -232,6 +236,7 @@ $(document).ready(function(){
     var button = document.createElement('button');
     button.setAttribute('id',object.buttonid);
     button.setAttribute('class','btn btn-primary btn-lg');
+    button.setAttribute('data-comments',object.videoid)
     var uploadcontent = object.uploadinfo;
     var uploadtext = document.createTextNode(uploadcontent);
     var uploadinfo = document.createElement('p');
@@ -275,29 +280,35 @@ $(document).ready(function(){
     }
     }
     // Toggle video functionality, also ensures only one video can be viewed at a time.
+    // Data attributes added so that comments can be built to the correct videos
+    var submit= document.getElementById('submit');
     $('#toggleiceman').click(function(){
       $('#icerow').toggleClass("hide");
       $('#jobsrow').addClass("hide");
       $('#speechrow').addClass("hide");
       $('#seneccarow').addClass("hide");
+      submit.setAttribute('data-comments','icerow');
     });
     $('#togglespeech').click(function(){
       $('#speechrow').toggleClass("hide");
       $('#jobsrow').addClass("hide");
       $('#icerow').addClass("hide");
       $('#seneccarow').addClass("hide");
+      submit.setAttribute('data-comments','speechrow');
     });
     $('#togglejobs').click(function(){
       $('#jobsrow').toggleClass("hide");
       $('#icerow').addClass("hide");
       $('#speechrow').addClass("hide");
       $('#seneccarow').addClass("hide");
+      submit.setAttribute('data-comments','jobsrow');
     });
     $('#togglesenecca').click(function(){
       $('#seneccarow').toggleClass("hide");
       $('#jobsrow').addClass("hide");
       $('#speechrow').addClass("hide");
       $('#icerow').addClass("hide");
+      submit.setAttribute('data-comments','seneccarow');
     });
   });
   // COMMENTS: Call the comment history builder function when user searches
