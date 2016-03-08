@@ -44,15 +44,38 @@ $(document).ready(function(){
   var commenthistory = [
     {
       comment: "Much Amaze.So much feeling.",
-      img: 'images/doge.jpeg'
+      img: 'images/doge.jpeg',
+      commentid: "speechrow"
     },
     {
       comment: "Is he an artist?",
-      img: 'images/troll.jpg'
+      img: 'images/troll.jpg',
+      commentid: "speechrow"
     },
     {
       comment: "I always make great art!",
-      img: 'images/baby.jpg'
+      img: 'images/baby.jpg',
+      commentid: "speechrow"
+    },
+    {
+      comment: "Much Cold.So much excite.",
+      img: 'images/doge.jpeg',
+      commentid: "icerow"
+    },
+    {
+      comment: "Much Deep.So much happy.",
+      img: 'images/doge.jpeg',
+      commentid: "seneccarow"
+    },
+    {
+      comment: "Much intense.So much Apple.",
+      img: 'images/doge.jpeg',
+      commentid: "jobsrow"
+    },
+    {
+      comment: "Doge is I.",
+      img: 'images/doge.jpeg',
+      commentid: "jobsrow"
     }
   ]
   // COMMENTS: Function to build the history
@@ -71,21 +94,18 @@ $(document).ready(function(){
     mediabody.setAttribute('class','media-body');
     var media = document.createElement('div');
     media.setAttribute('class','media');
-    var history = document.getElementById('history');
+    var target = document.getElementById(object.commentid);
+    var divrow = document.createElement('div');
+    divrow.setAttribute('class','col-md-3');
     //Append comment history variables
     medialeft.appendChild(image);
     paragraph.appendChild(node);
     mediabody.appendChild(paragraph);
     media.appendChild(medialeft);
     media.appendChild(mediabody);
-    history.appendChild(media);
+    divrow.appendChild(media);
+    target.appendChild(divrow);
   };
-  // COMMENTS: Call the comment history builder function when user searches
-  searchresults.addEventListener('click',function(e) {
-      for (var i=0; i<commenthistory.length; i++){
-        commentBuilder(commenthistory[i]);
-      }
-    });
   // COMMENTS: Function that builds new comments by the user
   submit.addEventListener('click',function(e) {
     // Create variables to be appended
@@ -130,7 +150,8 @@ $(document).ready(function(){
         img: 'images/wim-hof.jpg',
         videoid: "iceman",
         url: "https://www.youtube.com/embed/VaMjhwFE1Zw",
-        buttonid: "toggleiceman"
+        buttonid: "toggleiceman",
+        rowid: "icerow"
       },
       {
         title: "Neil Gaiman: 2012 Commencement Speech",
@@ -141,7 +162,8 @@ $(document).ready(function(){
         img: 'images/neil-gaiman.jpg',
         videoid: "speech",
         url: "https://www.youtube.com/embed/plWexCID-kA",
-        buttonid: "togglespeech"
+        buttonid: "togglespeech",
+        rowid: "speechrow"
       },
       {
         title: "Steve Jobs: 2005 Stanford Commencement",
@@ -152,7 +174,8 @@ $(document).ready(function(){
         img: 'images/steve-jobs.jpg',
         videoid: "stevejobs",
         url: "https://www.youtube.com/embed/D1R-jKKp3NA",
-        buttonid: "togglejobs"
+        buttonid: "togglejobs",
+        rowid: "jobsrow"
       },
       {
         title: "Senecca: Health, Happiness, and Stoicism",
@@ -163,7 +186,8 @@ $(document).ready(function(){
         img: 'images/senecca.jpg',
         videoid: "senecca",
         url: "https://www.youtube.com/embed/EYWEAa-D5vM",
-        buttonid: "togglesenecca"
+        buttonid: "togglesenecca",
+        rowid: "seneccarow"
       }
     ];
   // SEARCH RESULTS: Create hidden videos upon search
@@ -173,12 +197,16 @@ $(document).ready(function(){
     iframe.setAttribute('class','embed-responsive-item');
     iframe.setAttribute('src',object.url);
     var videoDiv = document.createElement('div');
-    videoDiv.setAttribute('class','col-md-12 embed-responsive embed-responsive-16by9 hide')
+    videoDiv.setAttribute('class','col-md-9 embed-responsive embed-responsive-16by9');
     videoDiv.setAttribute('id',object.videoid);
     var videos = document.getElementById('videos');
+    var videorow = document.createElement('div');
+    videorow.setAttribute('class','row hide')
+    videorow.setAttribute('id',object.rowid)
     //Append variables and create hidden videos
     videoDiv.appendChild(iframe);
-    videos.appendChild(videoDiv);
+    videorow.appendChild(videoDiv);
+    videos.appendChild(videorow);
   };
   // SEARCH RESULTS: Function for creation
   function resultBuilder(object){
@@ -199,8 +227,11 @@ $(document).ready(function(){
     medialeft.appendChild(attribute);
     media.appendChild(medialeft);
     // Body: Getting variables ready for Title, Description, Username,Upload Date, Likes, and Views
+    var buttonparagraph = document.createElement('p');
+    var buttontext = document.createTextNode('Watch Now!');
     var button = document.createElement('button');
     button.setAttribute('id',object.buttonid);
+    button.setAttribute('class','btn btn-primary btn-lg');
     var uploadcontent = object.uploadinfo;
     var uploadtext = document.createTextNode(uploadcontent);
     var uploadinfo = document.createElement('p');
@@ -214,6 +245,8 @@ $(document).ready(function(){
     var mediabody = document.createElement('div');
     mediabody.className= ("media-body");
     // Appending body variables
+    buttonparagraph.appendChild(buttontext);
+    button.appendChild(buttonparagraph);
     uploadinfo.appendChild(uploadtext);
     paragraph.appendChild(text);
     paragraph.appendChild(button);
@@ -243,16 +276,22 @@ $(document).ready(function(){
     }
     // Toggle video functionality
     $('#toggleiceman').click(function(){
-      $('#iceman').toggleClass("hide");
+      $('#icerow').toggleClass("hide");
     });
     $('#togglespeech').click(function(){
-      $('#speech').toggleClass("hide");
+      $('#speechrow').toggleClass("hide");
     });
     $('#togglejobs').click(function(){
-      $('#stevejobs').toggleClass("hide");
+      $('#jobsrow').toggleClass("hide");
     });
     $('#togglesenecca').click(function(){
-      $('#senecca').toggleClass("hide");
+      $('#seneccarow').toggleClass("hide");
     });
   });
+  // COMMENTS: Call the comment history builder function when user searches
+  searchresults.addEventListener('click',function(e) {
+      for (var i=0; i<commenthistory.length; i++){
+        commentBuilder(commenthistory[i]);
+      }
+    });
 });
