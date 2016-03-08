@@ -274,18 +274,30 @@ $(document).ready(function(){
         resultBuilder(videoresults[i]);
     }
     }
-    // Toggle video functionality
+    // Toggle video functionality, also ensures only one video can be viewed at a time.
     $('#toggleiceman').click(function(){
       $('#icerow').toggleClass("hide");
+      $('#jobsrow').addClass("hide");
+      $('#speechrow').addClass("hide");
+      $('#seneccarow').addClass("hide");
     });
     $('#togglespeech').click(function(){
       $('#speechrow').toggleClass("hide");
+      $('#jobsrow').addClass("hide");
+      $('#icerow').addClass("hide");
+      $('#seneccarow').addClass("hide");
     });
     $('#togglejobs').click(function(){
       $('#jobsrow').toggleClass("hide");
+      $('#icerow').addClass("hide");
+      $('#speechrow').addClass("hide");
+      $('#seneccarow').addClass("hide");
     });
     $('#togglesenecca').click(function(){
       $('#seneccarow').toggleClass("hide");
+      $('#jobsrow').addClass("hide");
+      $('#speechrow').addClass("hide");
+      $('#icerow').addClass("hide");
     });
   });
   // COMMENTS: Call the comment history builder function when user searches
