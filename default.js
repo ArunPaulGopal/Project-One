@@ -28,17 +28,25 @@ $(document).ready(function(){
   // RECOMMENDATIONS: Function to build the grid
     //Get variables ready to be appended
     //ID will be in the array, use that property to set the right ID for link
-/*
     function recommendBuild(object) {
-      var description
-      var title
-      var image
-      var buttonid
+      var paragraph = document.createElement('p');
+      var paragraphtext = document.createTextNode(textcontent);
+      var textcontent = object.description;
+      var title = document.createElement('h3');
+      var titletext = document.createTextNode(titlecontent);
+      var titlecontent = object.title;
+      var image = document.createElement('img');
+      image.setAttribute('src',object.img);
+      image.setAttribute('class','img-rounded');
       var media = document.createElement('div');
-      var
+      media.setAttribute('class','media');
+      var mediabody = document.createElement('div');
+      media.setAttribute('class','media-body');
+      var medialeft = document.createElement('div');
+      media.setAttribute('class','media-left');
     }
-    */
     //Append variables to the recommendations ID
+
 // COMMENTS: SECTION START
   //COMMENTS: Box Data
   var commenthistory = [
@@ -174,7 +182,7 @@ $(document).ready(function(){
         title: "Steve Jobs: 2005 Stanford Commencement",
         uploadinfo: "APPLE INC. 2/26/14",
         views:  "95 million",
-        description: "He wasn't the nicest guy, but he sure was passionate.",
+        description: "Apple's former CEO on following intuition.",
         likes:  871,
         img: 'images/steve-jobs.jpg',
         videoid: "stevejobs",
@@ -216,9 +224,6 @@ $(document).ready(function(){
   // SEARCH RESULTS: Function for creation
   function resultBuilder(object){
     // Getting variables ready for images
-    var attribute = document.createElement('a');
-    var icontent = object.img;
-    var inode = document.createTextNode(icontent);
     var image = document.createElement('img');
     image.setAttribute('src',object.img);
     image.setAttribute('class','img-rounded');
@@ -227,9 +232,7 @@ $(document).ready(function(){
     var media = document.createElement('div')
     media.className= ('media');
     // Appending image variables
-    image.appendChild(inode);
-    attribute.appendChild(image)
-    medialeft.appendChild(attribute);
+    medialeft.appendChild(image);
     media.appendChild(medialeft);
     // Body: Getting variables ready for Title, Description, Username,Upload Date, Likes, and Views
     var buttonparagraph = document.createElement('p');
@@ -237,7 +240,8 @@ $(document).ready(function(){
     var button = document.createElement('button');
     button.setAttribute('id',object.buttonid);
     button.setAttribute('class','btn btn-primary btn-lg');
-    button.setAttribute('data-comments',object.videoid)
+    var attribute = document.createElement('a');
+    attribute.setAttribute('href','#videos');
     var uploadcontent = object.uploadinfo;
     var uploadtext = document.createTextNode(uploadcontent);
     var uploadinfo = document.createElement('p');
@@ -253,9 +257,10 @@ $(document).ready(function(){
     // Appending body variables
     buttonparagraph.appendChild(buttontext);
     button.appendChild(buttonparagraph);
+    attribute.appendChild(button);
     uploadinfo.appendChild(uploadtext);
     paragraph.appendChild(text);
-    paragraph.appendChild(button);
+    paragraph.appendChild(attribute);
     title.appendChild(titletext);
     mediabody.appendChild(title);
     mediabody.appendChild(uploadinfo);
@@ -269,6 +274,9 @@ $(document).ready(function(){
       for (var i=0; i<videoresults.length; i++){
         videoBuilder(videoresults[i]);
       }
+      // Show comments after initial search to keep the loading page clean
+      $('#comments').removeClass('hide');
+      $('#recommendations').addClass('hide');
     });
   // SEARCH RESULTS: Execute the function upon search.
   // Also added in Video Toggling functionality here.
