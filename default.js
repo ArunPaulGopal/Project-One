@@ -7,55 +7,49 @@ $(document).ready(function(){
   // RECOMMENDATIONS: Data
   var recoresults = [
     {
-      recotitle: "Recommendation 1",
-      description: "TBD",
-      img: 'images/logo.jpg',
+      recotitle: "How to Stay Calm When You Know You'll Be Stressed | Daniel Levitin | TED Talks",
+      img: 'images/ted.png',
       id: "R1",
-      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
+      url: "https://www.youtube.com/embed/8jPQjjsBbIc",
+      toggleid: "toggleR1",
+      href: "#R1"
     },
     {
-      recotitle: "Recommendation 2",
-      description: "TBD",
-      img: 'images/logo.jpg',
+      recotitle: "Why Do We Fall - Motivational Video",
+      img: 'images/fall.jpg',
       id: "R2",
-      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
+      url: "https://www.youtube.com/embed/mgmVOuLgFB0",
+      toggleid: "toggleR2",
+      href: "#R2"
     },
     {
-      recotitle: "Recommendation 3",
-      description: "TBD",
-      img: 'images/logo.jpg',
+      recotitle: "The Pale Blue Dot - Cosmos: A Space Time Odyssey",
+      img: 'images/space.jpg',
       id: "R3",
-      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
+      url: "https://www.youtube.com/embed/XH7ZRF6zNoc",
+      toggleid: "toggleR3",
+      href: "#R3"
     },
     {
-      recotitle: "Recommendation 4",
-      description: "TBD",
-      img: 'images/logo.jpg',
-      id: "R3",
-      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
-    },
-    {
-      recotitle: "Recommendation 5",
-      description: "TBD",
-      img: 'images/logo.jpg',
-      id: "R3",
-      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
-    },
-    {
-      recotitle: "Recommendation 6",
-      description: "TBD",
-      img: 'images/logo.jpg',
-      id: "R3",
-      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
+      recotitle: "Nat Geo Wild The Great Bear Rainforest Nature Documentary",
+      img: 'images/bear.jpg',
+      id: "R4",
+      url: "https://www.youtube.com/embed/kjRAWql2A3E",
+      toggleid: "toggleR4",
+      href: "#R4"
     }
   ]
   // RECOMMENDATIONS: Function to build the grid
     //Get variables ready to be appended
     //ID will be in the array, use that property to set the right ID for link
     function recommendBuilder(object) {
-      var textcontent = object.description;
-      var paragraph = document.createElement('p');
-      var paragraphtext = document.createTextNode(textcontent);
+      var attribute = document.createElement('a');
+      attribute.setAttribute('href',object.href);
+      var buttonparagraph = document.createElement('p');
+      var buttontext = document.createTextNode('Watch Now!');
+      var button = document.createElement('button');
+      button.setAttribute('id',object.toggleid);
+      button.setAttribute('class','btn btn-primary btn-md');
       var titlecontent = object.recotitle;
       var title = document.createElement('h3');
       var titletext = document.createTextNode(titlecontent);
@@ -71,18 +65,63 @@ $(document).ready(function(){
       var target = document.getElementById('recommendations')
       //Append variables to the recommendations ID
       medialeft.appendChild(image);
-      paragraph.appendChild(paragraphtext);
+      buttonparagraph.appendChild(buttontext);
+      button.appendChild(buttonparagraph);
+      attribute.appendChild(button);
       title.appendChild(titletext);
       mediabody.appendChild(title);
-      mediabody.appendChild(paragraph);
+      mediabody.appendChild(attribute);
       media.appendChild(medialeft);
       media.appendChild(mediabody);
       target.appendChild(media);
     }
-    //RECOMMENDATIONS: Run function right away rather than upon click
-        for (var i=0; i<recoresults.length; i++){
-          recommendBuilder(recoresults[i]);
-        }
+  //RECOMMENDATIONS: Function to build the videos and allow user to Watch
+  function recoVideos(object) {
+    var iframe = document.createElement('iframe');
+    iframe.setAttribute('class','embed-responsive-item');
+    iframe.setAttribute('src',object.url);
+    var videoDiv = document.createElement('div');
+    videoDiv.setAttribute('class','col-md-12 embed-responsive embed-responsive-16by9');
+    var videos = document.getElementById('videos');
+    var videorow = document.createElement('div');
+    videorow.setAttribute('class','row hide')
+    videorow.setAttribute('id',object.id);
+    var recorow = document.getElementById('recorow');
+    //Append variables and create hidden videos
+    videoDiv.appendChild(iframe);
+    videorow.appendChild(videoDiv);
+    recorow.appendChild(videorow);
+  }
+  //RECOMMENDATIONS: Run result function right away rather than upon click
+      for (var i=0; i<recoresults.length; i++){
+        recommendBuilder(recoresults[i]);
+        recoVideos(recoresults[i]);
+      }
+  //RECOMMENDATIONS: Toggle behavior set after functions run
+      $('#toggleR1').click(function(){
+        $('#R1').toggleClass("hide");
+        $('#R2').addClass("hide");
+        $('#R3').addClass("hide");
+        $('#R4').addClass("hide");
+      });
+      $('#toggleR2').click(function(){
+        $('#R2').toggleClass("hide");
+        $('#R1').addClass("hide");
+        $('#R3').addClass("hide");
+        $('#R4').addClass("hide");
+      });
+      $('#toggleR3').click(function(){
+        $('#R3').toggleClass("hide");
+        $('#R1').addClass("hide");
+        $('#R2').addClass("hide");
+        $('#R4').addClass("hide");
+      });
+      $('#toggleR4').click(function(){
+        $('#R4').toggleClass("hide");
+        $('#R1').addClass("hide");
+        $('#R2').addClass("hide");
+        $('#R3').addClass("hide");
+      });
 // COMMENTS: SECTION START
   //COMMENTS: Box Data
   var commenthistory = [
