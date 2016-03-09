@@ -299,6 +299,8 @@ $(document).ready(function(){
   // SEARCH RESULTS: Function for creation
   function resultBuilder(object){
     // Getting variables ready for images
+    var star = document.createElement('i');
+    star.setAttribute('class','fa fa-star-o fa-2x');
     var image = document.createElement('img');
     image.setAttribute('src',object.img);
     image.setAttribute('class','img-rounded');
@@ -337,6 +339,7 @@ $(document).ready(function(){
     paragraph.appendChild(text);
     paragraph.appendChild(attribute);
     title.appendChild(titletext);
+    mediabody.appendChild(star);
     mediabody.appendChild(title);
     mediabody.appendChild(uploadinfo);
     mediabody.appendChild(paragraph);
