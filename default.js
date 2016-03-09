@@ -10,19 +10,43 @@ $(document).ready(function(){
       recotitle: "Recommendation 1",
       description: "TBD",
       img: 'images/logo.jpg',
-      id: "R1"
+      id: "R1",
+      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
     },
     {
       recotitle: "Recommendation 2",
       description: "TBD",
       img: 'images/logo.jpg',
-      id: "R2"
+      id: "R2",
+      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
     },
     {
       recotitle: "Recommendation 3",
       description: "TBD",
       img: 'images/logo.jpg',
-      id: "R3"
+      id: "R3",
+      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
+    },
+    {
+      recotitle: "Recommendation 4",
+      description: "TBD",
+      img: 'images/logo.jpg',
+      id: "R3",
+      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
+    },
+    {
+      recotitle: "Recommendation 5",
+      description: "TBD",
+      img: 'images/logo.jpg',
+      id: "R3",
+      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
+    },
+    {
+      recotitle: "Recommendation 6",
+      description: "TBD",
+      img: 'images/logo.jpg',
+      id: "R3",
+      url: "https://www.youtube.com/embed/VaMjhwFE1Zw"
     }
   ]
   // RECOMMENDATIONS: Function to build the grid
@@ -54,8 +78,6 @@ $(document).ready(function(){
       media.appendChild(medialeft);
       media.appendChild(mediabody);
       target.appendChild(media);
-      console.log(titlecontent);
-      console.log(titletext);
     }
     //RECOMMENDATIONS: Run function right away rather than upon click
         for (var i=0; i<recoresults.length; i++){
@@ -288,9 +310,9 @@ $(document).ready(function(){
       for (var i=0; i<videoresults.length; i++){
         videoBuilder(videoresults[i]);
       }
-      // Show comments after initial search to keep the loading page clean
+      // Show comments after first search to keep the loading page clean, and hide recommendations
       $('#comments').removeClass('hide');
-      $('#recommendations').addClass('hide');
+      $('#recorow').addClass('hide');
     });
   // SEARCH RESULTS: Execute the function upon search.
   // Also added in Video Toggling functionality here.
