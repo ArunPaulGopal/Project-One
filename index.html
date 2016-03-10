@@ -10,11 +10,8 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-1">
-          <img src="images/logo.jpg">
-        </div>
-        <div class="col-md-1">
-          <h1>otivation</h1>
+        <div class="col-md-12">
+          <img src="images/logo.jpg" class="pull-left"><h1>otivation</h1>
         </div>
       </div>
       <div class="row">
@@ -37,7 +34,15 @@
             <div class="panel-heading text-center"><strong>Top 4 Recommendations for today based on your viewing history!</strong></div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-12" id="recommendations"></div>
+                <div class="col-md-12" id="recoresults"></div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading text-center"><strong>Quick View</strong></div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12" id="recoview"></div>
               </div>
             </div>
           </div>
@@ -58,9 +63,11 @@
       <div class="row">
         <div class"col-md-12">
           <div class="panel panel-primary hide" id="videopanel">
-            <div class="panel-heading text-center"><strong>Video Viewer</strong></div>
+            <div class="panel-heading text-center"><strong>Video Player</strong></div>
             <div class="panel-body">
-              <div class="col-md-12" id="videos"></div>
+              <div class="row">
+                <div class="col-md-12" id="videos"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -68,7 +75,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-primary hide" id="commentpanel">
-            <div class="panel-heading text-center"><strong>Comments</strong></div>
+            <div class="panel-heading text-center"><strong>Add your comments and rating!</strong></div>
             <div class="panel-body">
               <div class="row" id="comments">
                 <div class="col-md-12">

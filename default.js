@@ -51,6 +51,7 @@ $(document).ready(function(){
       button.setAttribute('class','btn btn-primary');
       var titlecontent = object.recotitle;
       var title = document.createElement('h3');
+      title.setAttribute('class','media-heading');
       var titletext = document.createTextNode(titlecontent);
       var image = document.createElement('img');
       image.setAttribute('src',object.img);
@@ -61,7 +62,7 @@ $(document).ready(function(){
       mediabody.setAttribute('class','media-body');
       var medialeft = document.createElement('div');
       medialeft.setAttribute('class','media-left');
-      var target = document.getElementById('recommendations')
+      var target = document.getElementById('recoresults')
       var panel = document.createElement('div');
       panel.setAttribute('class','panel panel-primary');
       var panelbody = document.createElement('div');
@@ -89,11 +90,10 @@ $(document).ready(function(){
     iframe.setAttribute('src',object.url);
     var videoDiv = document.createElement('div');
     videoDiv.setAttribute('class','col-md-12 embed-responsive embed-responsive-16by9');
-    var videos = document.getElementById('videos');
     var videorow = document.createElement('div');
     videorow.setAttribute('class','row hide');
     videorow.setAttribute('id',object.id);
-    var recorow = document.getElementById('recorow');
+    var recorow = document.getElementById('recoview');
     //Append variables and create hidden videos
     videoDiv.appendChild(iframe);
     videorow.appendChild(videoDiv);
@@ -187,13 +187,19 @@ $(document).ready(function(){
     var target = document.getElementById(object.commentid);
     var divrow = document.createElement('div');
     divrow.setAttribute('class','col-md-3');
+    var panel = document.createElement('div');
+    panel.setAttribute('class','panel panel-primary');
+    var panelbody = document.createElement('div');
+    panelbody.setAttribute('class','panel-body');
     //Append comment history variables
     medialeft.appendChild(image);
     paragraph.appendChild(node);
     mediabody.appendChild(paragraph);
     media.appendChild(medialeft);
     media.appendChild(mediabody);
-    divrow.appendChild(media);
+    panelbody.appendChild(media);
+    panel.appendChild(panelbody);
+    divrow.appendChild(panel);
     target.appendChild(divrow);
   };
   // COMMENTS: Function that builds new comments by the user
@@ -219,6 +225,10 @@ $(document).ready(function(){
     // Uses the data from video selected by user to help navigate comment to correct area
     var target = document.getElementById('submit').getAttribute('data-comments');
     var appendto = document.getElementById(target);
+    var panel = document.createElement('div');
+    panel.setAttribute('class','panel panel-primary');
+    var panelbody = document.createElement('div');
+    panelbody.setAttribute('class','panel-body');
     // Append variables
     para.appendChild(text);
     attr.appendChild(image);
@@ -226,7 +236,9 @@ $(document).ready(function(){
     medialeft.appendChild(attr);
     media.appendChild(medialeft);
     media.appendChild(mediabody);
-    columndiv.appendChild(media);
+    panelbody.appendChild(media);
+    panel.appendChild(panelbody);
+    columndiv.appendChild(panel);
     appendto.appendChild(columndiv);
   });
   //COMMENTS: Turn thumbs blue when clicked
@@ -291,7 +303,7 @@ $(document).ready(function(){
     ];
   // SEARCH RESULTS: Create hidden videos upon search
   function videoBuilder(object){
-    //Create variables for video data
+    // Create variables for video data
     var iframe = document.createElement('iframe');
     iframe.setAttribute('class','embed-responsive-item');
     iframe.setAttribute('src',object.url);
@@ -302,7 +314,7 @@ $(document).ready(function(){
     var videorow = document.createElement('div');
     videorow.setAttribute('class','row hide');
     videorow.setAttribute('id',object.rowid);
-    //Append variables and create hidden videos
+    // Append variables and create hidden videos
     videoDiv.appendChild(iframe);
     videorow.appendChild(videoDiv);
     videos.appendChild(videorow);
@@ -378,7 +390,7 @@ $(document).ready(function(){
     var searchbox = document.getElementById('searchtext');
     var searchtext = searchbox.value;
     if (searchtext.toLowerCase() === "motivation") {
-      for (var i=0; i<videoresults.length; i++){
+      for (var i=0; i<videoresults.length; i++) {
         resultBuilder(videoresults[i]);
     }
     }
