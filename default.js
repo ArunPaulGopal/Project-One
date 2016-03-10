@@ -55,7 +55,7 @@ $(document).ready(function(){
       var titletext = document.createTextNode(titlecontent);
       var image = document.createElement('img');
       image.setAttribute('src',object.img);
-      image.setAttribute('class','img-rounded');
+      image.setAttribute('class','img-rounded thumbnail');
       var media = document.createElement('div');
       media.setAttribute('class','media');
       var mediabody = document.createElement('div');
@@ -63,6 +63,12 @@ $(document).ready(function(){
       var medialeft = document.createElement('div');
       medialeft.setAttribute('class','media-left');
       var target = document.getElementById('recommendations')
+      var panel = document.createElement('div');
+      panel.setAttribute('class','panel panel-primary');
+      var panelbody = document.createElement('div');
+      panelbody.setAttribute('class','panel-body');
+      var panelfooter = document.createElement('div');
+      panelfooter.setAttribute('class','panel-footer text-right');
       //Append variables to the recommendations ID
       medialeft.appendChild(image);
       buttonparagraph.appendChild(buttontext);
@@ -70,10 +76,13 @@ $(document).ready(function(){
       attribute.appendChild(button);
       title.appendChild(titletext);
       mediabody.appendChild(title);
-      mediabody.appendChild(attribute);
+      panelfooter.appendChild(attribute);
       media.appendChild(medialeft);
       media.appendChild(mediabody);
-      target.appendChild(media);
+      panelbody.appendChild(media);
+      panel.appendChild(panelbody);
+      panel.appendChild(panelfooter);
+      target.appendChild(panel);
     }
   //RECOMMENDATIONS: Function to build the videos and allow user to watch
   function recoVideos(object) {
@@ -167,7 +176,7 @@ $(document).ready(function(){
     //Build variables for comment history
     var image = document.createElement('img');
     image.setAttribute('src',object.img);
-    image.setAttribute('class','img-circle');
+    image.setAttribute('class','img-circle thumbnail');
     var medialeft = document.createElement('div');
     medialeft.setAttribute('class','media-left');
     var text = object.comment;
@@ -199,7 +208,7 @@ $(document).ready(function(){
     var attr = document.createElement('a');
     var image = document.createElement('img');
     image.setAttribute('src','images/profile.jpg');
-    image.setAttribute('class','img-circle');
+    image.setAttribute('class','img-circle thumbnail');
     var para = document.createElement('p');
     var mediabody = document.createElement('div');
     mediabody.className = ('media-body');
@@ -303,12 +312,9 @@ $(document).ready(function(){
   // SEARCH RESULTS: Function for creation
   function resultBuilder(object){
     // Getting variables ready for images
-    var star = document.createElement('i');
-    star.setAttribute('class','fa fa-star-o fa-2x star');
-    star.setAttribute('id',object.starid);
     var image = document.createElement('img');
     image.setAttribute('src',object.img);
-    image.setAttribute('class','img-rounded');
+    image.setAttribute('class','img-rounded thumbnail');
     var medialeft = document.createElement('div');
     medialeft.className= ("media-left");
     var media = document.createElement('div');
@@ -336,20 +342,28 @@ $(document).ready(function(){
     var paragraph = document.createElement('p');
     var mediabody = document.createElement('div');
     mediabody.className= ("media-body");
+    var panel = document.createElement('div');
+    panel.setAttribute('class','panel panel-primary');
+    var panelbody = document.createElement('div');
+    panelbody.setAttribute('class','panel-body');
+    var panelfooter = document.createElement('div');
+    panelfooter.setAttribute('class','panel-footer text-right');
     // Appending body variables
     buttonparagraph.appendChild(buttontext);
     button.appendChild(buttonparagraph);
     attribute.appendChild(button);
     uploadinfo.appendChild(uploadtext);
     paragraph.appendChild(text);
-    paragraph.appendChild(attribute);
     title.appendChild(titletext);
-    mediabody.appendChild(star);
     mediabody.appendChild(title);
     mediabody.appendChild(uploadinfo);
     mediabody.appendChild(paragraph);
     media.appendChild(mediabody);
-    results.appendChild(media);
+    panelbody.appendChild(media);
+    panel.appendChild(panelbody);
+    panelfooter.appendChild(attribute);
+    panel.appendChild(panelfooter);
+    results.appendChild(panel);
   };
   var results = document.getElementById('results');
   //Upon search, use function to build hidden videos
@@ -419,21 +433,13 @@ $(document).ready(function(){
   var myPlaylist = [];
   //PLAYLIST: Function to push a video's content into the array
   /*
-  function playlistBuilder(video) {
-              //Star position or ID
-              var star = getElementsByClassName('star')
-              if star.className
-              $(.star).hasClass('toggled');
-              //videoresults[starposition].push(myPlaylist)
-              //console.log (empty array to check)
-  }
-  */
+
   //PLAYLIST: Event Listener so that when a star is clicked, function is run to push data into array. (When star is clicked again, remove?)
          // star.addEventListener (): run the function?
 
   //PLAYLIST: Function to append the playlist array to the page
-        // EASY
+
   //PLAYLIST: Event Listener so that when Playlist button is clicked, results and recommendations are hidden
   //and the function appends playlist array to the screen
-        // EASY
+
 });

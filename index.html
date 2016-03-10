@@ -9,28 +9,25 @@
   </head>
   <body>
     <div class="container">
-      <div class="well well-lg" id="navbar">
-        <div class="row">
-          <div class="col-md-3">
-            <img src="images/logo.jpg"  id="logo">
-          </div>
-          <div class="col-md-6">
-            <div class="input-group" id="search">
-              <input type="text" class=" search-query form-control" placeholder="Search" id="searchtext" />
-              <span class="input-group-btn">
-                  <a href="#results"><button class="btn btn-danger" type="button" id="searchresults">
-                      <span class="glyphicon glyphicon-search"></span>
-                  </button></a>
-              </span>
-            </div>
-          </div>
-          <div class="col-md-3" id="profile">
-            <img src="images/profile.jpg" class="img-circle pull-right">
-          </div>
+      <div class="row">
+        <div class="col-md-1">
+          <img src="images/logo.jpg">
         </div>
-        <div class="row">
-          <div class = "col-md-2 col-md-offset-5">
-            <button class="btn btn-danger btn-lg" id="playButton">View Playlist!</button>
+        <div class="col-md-1">
+          <h1>otivation</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="jumbotron">
+            <div class="input-group" id="search">
+              <input type="text" class="search-query form-control" placeholder="Search for Videos!" id="searchtext" />
+              <div class="input-group-btn">
+                  <button class="btn btn-danger" type="button" id="searchresults">
+                      <span class="glyphicon glyphicon-search"></span>
+                  </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -39,7 +36,9 @@
           <div class="panel panel-primary">
             <div class="panel-heading text-center"><strong>Top 4 Recommendations for today based on your viewing history!</strong></div>
             <div class="panel-body">
-              <div class="col-md-8 col-md-offset-2" id="recommendations"></div>
+              <div class="row">
+                <div class="col-md-12" id="recommendations"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -49,7 +48,9 @@
           <div class="panel panel-primary hide" id="resultspanel">
             <div class="panel-heading text-center"><strong>Search Results</strong></div>
             <div class="panel-body">
-              <div class="col-md-8 col-md-offset-2" id="results"></div>
+              <div class="row">
+                <div class="col-md-12" id="results"></div>
+              </div>
             </div>
           </div>
         </div>
