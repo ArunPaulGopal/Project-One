@@ -75,7 +75,7 @@ $(document).ready(function(){
       media.appendChild(mediabody);
       target.appendChild(media);
     }
-  //RECOMMENDATIONS: Function to build the videos and allow user to Watch
+  //RECOMMENDATIONS: Function to build the videos and allow user to watch
   function recoVideos(object) {
     var iframe = document.createElement('iframe');
     iframe.setAttribute('class','embed-responsive-item');
@@ -84,7 +84,7 @@ $(document).ready(function(){
     videoDiv.setAttribute('class','col-md-12 embed-responsive embed-responsive-16by9');
     var videos = document.getElementById('videos');
     var videorow = document.createElement('div');
-    videorow.setAttribute('class','row hide')
+    videorow.setAttribute('class','row hide');
     videorow.setAttribute('id',object.id);
     var recorow = document.getElementById('recorow');
     //Append variables and create hidden videos
@@ -239,7 +239,8 @@ $(document).ready(function(){
         videoid: "iceman",
         url: "https://www.youtube.com/embed/VaMjhwFE1Zw",
         buttonid: "toggleiceman",
-        rowid: "icerow"
+        rowid: "icerow",
+        starid: "0"
       },
       {
         title: "Neil Gaiman: 2012 Commencement Speech",
@@ -251,7 +252,8 @@ $(document).ready(function(){
         videoid: "speech",
         url: "https://www.youtube.com/embed/plWexCID-kA",
         buttonid: "togglespeech",
-        rowid: "speechrow"
+        rowid: "speechrow",
+        starid: "1"
       },
       {
         title: "Steve Jobs: 2005 Stanford Commencement",
@@ -263,7 +265,8 @@ $(document).ready(function(){
         videoid: "stevejobs",
         url: "https://www.youtube.com/embed/D1R-jKKp3NA",
         buttonid: "togglejobs",
-        rowid: "jobsrow"
+        rowid: "jobsrow",
+        starid: "2"
       },
       {
         title: "Senecca: Health, Happiness, and Stoicism",
@@ -275,7 +278,8 @@ $(document).ready(function(){
         videoid: "senecca",
         url: "https://www.youtube.com/embed/EYWEAa-D5vM",
         buttonid: "togglesenecca",
-        rowid: "seneccarow"
+        rowid: "seneccarow",
+        starid: "3"
       }
     ];
   // SEARCH RESULTS: Create hidden videos upon search
@@ -289,8 +293,8 @@ $(document).ready(function(){
     videoDiv.setAttribute('id',object.videoid);
     var videos = document.getElementById('videos');
     var videorow = document.createElement('div');
-    videorow.setAttribute('class','row hide')
-    videorow.setAttribute('id',object.rowid)
+    videorow.setAttribute('class','row hide');
+    videorow.setAttribute('id',object.rowid);
     //Append variables and create hidden videos
     videoDiv.appendChild(iframe);
     videorow.appendChild(videoDiv);
@@ -300,13 +304,14 @@ $(document).ready(function(){
   function resultBuilder(object){
     // Getting variables ready for images
     var star = document.createElement('i');
-    star.setAttribute('class','fa fa-star-o fa-2x');
+    star.setAttribute('class','fa fa-star-o fa-2x star');
+    star.setAttribute('id',object.starid);
     var image = document.createElement('img');
     image.setAttribute('src',object.img);
     image.setAttribute('class','img-rounded');
     var medialeft = document.createElement('div');
     medialeft.className= ("media-left");
-    var media = document.createElement('div')
+    var media = document.createElement('div');
     media.className= ('media');
     // Appending image variables
     medialeft.appendChild(image);
@@ -352,9 +357,10 @@ $(document).ready(function(){
       for (var i=0; i<videoresults.length; i++){
         videoBuilder(videoresults[i]);
       }
-      // Show comments after first search to keep the loading page clean, and hide recommendations
-      $('#comments').removeClass('hide');
+      // Show comments add box only after first search to keep the loading page cleaner, and hide recommendations when going into results
+      $('#commentpanel').removeClass('hide');
       $('#recorow').addClass('hide');
+      $('#resultspanel').removeClass('hide');
     });
   // SEARCH RESULTS: Execute the function upon search.
   // Also added in Video Toggling functionality here.
@@ -374,6 +380,7 @@ $(document).ready(function(){
       $('#jobsrow').addClass("hide");
       $('#speechrow').addClass("hide");
       $('#seneccarow').addClass("hide");
+      $('#videopanel').removeClass("hide");
       submit.setAttribute('data-comments','icerow');
     });
     $('#togglespeech').click(function(){
@@ -381,6 +388,7 @@ $(document).ready(function(){
       $('#jobsrow').addClass("hide");
       $('#icerow').addClass("hide");
       $('#seneccarow').addClass("hide");
+      $('#videopanel').removeClass("hide");
       submit.setAttribute('data-comments','speechrow');
     });
     $('#togglejobs').click(function(){
@@ -388,6 +396,7 @@ $(document).ready(function(){
       $('#icerow').addClass("hide");
       $('#speechrow').addClass("hide");
       $('#seneccarow').addClass("hide");
+      $('#videopanel').removeClass("hide");
       submit.setAttribute('data-comments','jobsrow');
     });
     $('#togglesenecca').click(function(){
@@ -395,6 +404,7 @@ $(document).ready(function(){
       $('#jobsrow').addClass("hide");
       $('#speechrow').addClass("hide");
       $('#icerow').addClass("hide");
+      $('#videopanel').removeClass("hide");
       submit.setAttribute('data-comments','seneccarow');
     });
   });
@@ -404,4 +414,26 @@ $(document).ready(function(){
         commentBuilder(commenthistory[i]);
       }
     });
+//PLAYLIST: SECTION START
+  //PLAYLIST: Empty array to get ready to push into
+  var myPlaylist = [];
+  //PLAYLIST: Function to push a video's content into the array
+  /*
+  function playlistBuilder(video) {
+              //Star position or ID
+              var star = getElementsByClassName('star')
+              if star.className
+              $(.star).hasClass('toggled');
+              //videoresults[starposition].push(myPlaylist)
+              //console.log (empty array to check)
+  }
+  */
+  //PLAYLIST: Event Listener so that when a star is clicked, function is run to push data into array. (When star is clicked again, remove?)
+         // star.addEventListener (): run the function?
+
+  //PLAYLIST: Function to append the playlist array to the page
+        // EASY
+  //PLAYLIST: Event Listener so that when Playlist button is clicked, results and recommendations are hidden
+  //and the function appends playlist array to the screen
+        // EASY
 });
