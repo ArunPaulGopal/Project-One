@@ -45,11 +45,10 @@ $(document).ready(function(){
     function recommendBuilder(object) {
       var attribute = document.createElement('a');
       attribute.setAttribute('href',object.href);
-      var buttonparagraph = document.createElement('p');
       var buttontext = document.createTextNode('Watch Now!');
       var button = document.createElement('button');
       button.setAttribute('id',object.toggleid);
-      button.setAttribute('class','btn btn-primary btn-md');
+      button.setAttribute('class','btn btn-primary');
       var titlecontent = object.recotitle;
       var title = document.createElement('h3');
       var titletext = document.createTextNode(titlecontent);
@@ -68,11 +67,10 @@ $(document).ready(function(){
       var panelbody = document.createElement('div');
       panelbody.setAttribute('class','panel-body');
       var panelfooter = document.createElement('div');
-      panelfooter.setAttribute('class','panel-footer text-right');
+      panelfooter.setAttribute('class','panel-footer text-center');
       //Append variables to the recommendations ID
       medialeft.appendChild(image);
-      buttonparagraph.appendChild(buttontext);
-      button.appendChild(buttonparagraph);
+      button.appendChild(buttontext);
       attribute.appendChild(button);
       title.appendChild(titletext);
       mediabody.appendChild(title);
@@ -323,11 +321,10 @@ $(document).ready(function(){
     medialeft.appendChild(image);
     media.appendChild(medialeft);
     // Body: Getting variables ready for Title, Description, Username,Upload Date, Likes, and Views
-    var buttonparagraph = document.createElement('p');
     var buttontext = document.createTextNode('Watch Now!');
     var button = document.createElement('button');
     button.setAttribute('id',object.buttonid);
-    button.setAttribute('class','btn btn-primary btn-lg');
+    button.setAttribute('class','btn btn-primary');
     var attribute = document.createElement('a');
     attribute.setAttribute('href','#videos');
     var uploadcontent = object.uploadinfo;
@@ -347,10 +344,9 @@ $(document).ready(function(){
     var panelbody = document.createElement('div');
     panelbody.setAttribute('class','panel-body');
     var panelfooter = document.createElement('div');
-    panelfooter.setAttribute('class','panel-footer text-right');
+    panelfooter.setAttribute('class','panel-footer text-center');
     // Appending body variables
-    buttonparagraph.appendChild(buttontext);
-    button.appendChild(buttonparagraph);
+    button.appendChild(buttontext);
     attribute.appendChild(button);
     uploadinfo.appendChild(uploadtext);
     paragraph.appendChild(text);
@@ -432,7 +428,6 @@ $(document).ready(function(){
   //PLAYLIST: Empty array to get ready to push into
   var myPlaylist = [];
   //PLAYLIST: Function to push a video's content into the array
-  /*
 
   //PLAYLIST: Event Listener so that when a star is clicked, function is run to push data into array. (When star is clicked again, remove?)
          // star.addEventListener (): run the function?
