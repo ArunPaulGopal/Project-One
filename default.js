@@ -7,12 +7,13 @@ $(document).ready(function(){
   // RECOMMENDATIONS: Data
   var recoresults = [
     {
-      recotitle: "How to Stay Calm When You Know You'll Be Stressed | Daniel Levitin | TED Talks",
+      recotitle: "How to Stay Calm",
       img: 'images/ted.png',
       id: "R1",
       url: "https://www.youtube.com/embed/8jPQjjsBbIc",
       toggleid: "toggleR1",
-      href: "#R1"
+      href: "#R1",
+      description: "Lorem ipsum opeis dai crabba babba"
     },
     {
       recotitle: "Why Do We Fall - Motivational Video",
@@ -20,68 +21,110 @@ $(document).ready(function(){
       id: "R2",
       url: "https://www.youtube.com/embed/mgmVOuLgFB0",
       toggleid: "toggleR2",
-      href: "#R2"
+      href: "#R2",
+      description: "Lorem ipsum opeis dai crabba babba"
     },
     {
-      recotitle: "The Pale Blue Dot - Cosmos: A Space Time Odyssey",
+      recotitle: "The Pale Blue Dot - A Space Odyssey",
       img: 'images/space.jpg',
       id: "R3",
       url: "https://www.youtube.com/embed/XH7ZRF6zNoc",
       toggleid: "toggleR3",
-      href: "#R3"
+      href: "#R3",
+      description: "Lorem ipsum opeis dai crabba babba"
     },
     {
-      recotitle: "Nat Geo Wild The Great Bear Rainforest Nature Documentary",
+      recotitle: "The Great Bear Documentary",
       img: 'images/bear.jpg',
       id: "R4",
       url: "https://www.youtube.com/embed/kjRAWql2A3E",
       toggleid: "toggleR4",
-      href: "#R4"
+      href: "#R4",
+      description: "Lorem ipsum opeis dai crabba babba"
+    },
+    /* CAN ADD MORE RECOMMENDATIONS IN FUTURE
+    {
+      recotitle: "How to Stay Calm",
+      img: 'images/ted.png',
+      id: "R5",
+      url: "https://www.youtube.com/embed/8jPQjjsBbIc",
+      toggleid: "toggleR5",
+      href: "#R5",
+      description: "Lorem ipsum opeis dai crabba babba"
+    },
+    {
+      recotitle: "Why Do We Fall - Motivational Video",
+      img: 'images/fall.jpg',
+      id: "R6",
+      url: "https://www.youtube.com/embed/mgmVOuLgFB0",
+      toggleid: "toggleR6",
+      href: "#R6",
+      description: "Lorem ipsum opeis dai crabba babba"
+    },
+    {
+      recotitle: "The Pale Blue Dot - A Space Odyssey",
+      img: 'images/space.jpg',
+      id: "R7",
+      url: "https://www.youtube.com/embed/XH7ZRF6zNoc",
+      toggleid: "toggleR7",
+      href: "#R7",
+      description: "Lorem ipsum opeis dai crabba babba"
+    },
+    {
+      recotitle: "The Great Bear Documentary",
+      img: 'images/bear.jpg',
+      id: "R8",
+      url: "https://www.youtube.com/embed/kjRAWql2A3E",
+      toggleid: "toggleR8",
+      href: "#R8",
+      description: "Lorem ipsum opeis dai crabba babba"
     }
-  ]
+    */
+  ];
   // RECOMMENDATIONS: Function to build the grid
     //Get variables ready to be appended
     //ID will be in the array, use that property to set the right ID for link
     function recommendBuilder(object) {
+      var text = object.description;
+      var textparagraph = document.createElement('p');
+      var textnode = document.createTextNode(text);
       var attribute = document.createElement('a');
       attribute.setAttribute('href',object.href);
       var buttontext = document.createTextNode('Watch Now!');
       var button = document.createElement('button');
       button.setAttribute('id',object.toggleid);
       button.setAttribute('class','btn btn-primary');
+      var buttonparagraph = document.createElement('p');
+      buttonparagraph.setAttribute('class','text-center');
       var titlecontent = object.recotitle;
-      var title = document.createElement('h3');
+      var title = document.createElement('h4');
       title.setAttribute('class','media-heading');
       var titletext = document.createTextNode(titlecontent);
       var image = document.createElement('img');
       image.setAttribute('src',object.img);
       image.setAttribute('class','img-rounded thumbnail');
-      var media = document.createElement('div');
-      media.setAttribute('class','media');
-      var mediabody = document.createElement('div');
-      mediabody.setAttribute('class','media-body');
-      var medialeft = document.createElement('div');
-      medialeft.setAttribute('class','media-left');
-      var target = document.getElementById('recoresults')
-      var panel = document.createElement('div');
-      panel.setAttribute('class','panel panel-primary');
-      var panelbody = document.createElement('div');
-      panelbody.setAttribute('class','panel-body');
-      var panelfooter = document.createElement('div');
-      panelfooter.setAttribute('class','panel-footer text-center');
+      var target = document.getElementById('recoresults');
+      var thumbnail = document.createElement('div');
+      thumbnail.setAttribute('class','thumbnail');
+      var caption = document.createElement('div');
+      caption.setAttribute('class','caption');
+      var columndiv = document.createElement('div');
+      columndiv.setAttribute('class','col-sm-6 col-md-4');
       //Append variables to the recommendations ID
-      medialeft.appendChild(image);
+      textparagraph.appendChild(textnode);
       button.appendChild(buttontext);
       attribute.appendChild(button);
       title.appendChild(titletext);
-      mediabody.appendChild(title);
-      panelfooter.appendChild(attribute);
-      media.appendChild(medialeft);
-      media.appendChild(mediabody);
-      panelbody.appendChild(media);
-      panel.appendChild(panelbody);
-      panel.appendChild(panelfooter);
-      target.appendChild(panel);
+      buttonparagraph.appendChild(attribute);
+      caption.appendChild(title);
+      caption.appendChild(textparagraph);
+      caption.appendChild(buttonparagraph);
+      thumbnail.appendChild(image);
+      thumbnail.appendChild(caption);
+      columndiv.appendChild(thumbnail);
+      target.appendChild(columndiv);
+
+
     }
   //RECOMMENDATIONS: Function to build the videos and allow user to watch
   function recoVideos(object) {
@@ -98,12 +141,12 @@ $(document).ready(function(){
     videoDiv.appendChild(iframe);
     videorow.appendChild(videoDiv);
     recorow.appendChild(videorow);
-  }
+  };
   //RECOMMENDATIONS: Run result function right away rather than upon click
       for (var i=0; i<recoresults.length; i++){
         recommendBuilder(recoresults[i]);
         recoVideos(recoresults[i]);
-      }
+      };
   //RECOMMENDATIONS: Toggle behavior set after functions run
       $('#toggleR1').click(function(){
         $('#R1').toggleClass("hide");
@@ -250,7 +293,7 @@ $(document).ready(function(){
     var videoresults = [
       {
         title: "Inside the Superhman World of the Iceman",
-        uploadinfo: "VICE 2/26/15",
+        uploadinfo: "VICE:  2/26/15",
         views:  "98 million",
         description: "Question what you believe is possible.",
         likes:  871,
@@ -259,11 +302,11 @@ $(document).ready(function(){
         url: "https://www.youtube.com/embed/VaMjhwFE1Zw",
         buttonid: "toggleiceman",
         rowid: "icerow",
-        starid: "0"
+        starid: false
       },
       {
         title: "Neil Gaiman: 2012 Commencement Speech",
-        uploadinfo: "Secret Art Society  12/12/12",
+        uploadinfo: "Secret Art Society:  12/12/12",
         views:  "39 million",
         description: "A reminder not to forget why you do what you do.",
         likes:  871,
@@ -272,11 +315,11 @@ $(document).ready(function(){
         url: "https://www.youtube.com/embed/plWexCID-kA",
         buttonid: "togglespeech",
         rowid: "speechrow",
-        starid: "1"
+        starid: false
       },
       {
         title: "Steve Jobs: 2005 Stanford Commencement",
-        uploadinfo: "APPLE INC. 2/26/14",
+        uploadinfo: "APPLE INC.:  2/26/14",
         views:  "95 million",
         description: "Apple's former CEO on following intuition.",
         likes:  871,
@@ -285,11 +328,11 @@ $(document).ready(function(){
         url: "https://www.youtube.com/embed/D1R-jKKp3NA",
         buttonid: "togglejobs",
         rowid: "jobsrow",
-        starid: "2"
+        starid: false
       },
       {
         title: "Senecca: Health, Happiness, and Stoicism",
-        uploadinfo: "Philosopher 1/1/16",
+        uploadinfo: "Philosopher:  1/1/16",
         views:  "100 million",
         description: "Happiness: A skill and mindset to achieve.",
         likes:  1258,
@@ -298,7 +341,7 @@ $(document).ready(function(){
         url: "https://www.youtube.com/embed/EYWEAa-D5vM",
         buttonid: "togglesenecca",
         rowid: "seneccarow",
-        starid: "3"
+        starid: false
       }
     ];
   // SEARCH RESULTS: Create hidden videos upon search
@@ -392,7 +435,7 @@ $(document).ready(function(){
     if (searchtext.toLowerCase() === "motivation") {
       for (var i=0; i<videoresults.length; i++) {
         resultBuilder(videoresults[i]);
-    }
+      }
     }
     // Toggle video functionality, also ensures only one video can be viewed at a time.
     // Data attributes added so that comments can be built to the correct videos
@@ -436,17 +479,38 @@ $(document).ready(function(){
         commentBuilder(commenthistory[i]);
       }
     });
-//PLAYLIST: SECTION START
-  //PLAYLIST: Empty array to get ready to push into
-  var myPlaylist = [];
-  //PLAYLIST: Function to push a video's content into the array
-
-  //PLAYLIST: Event Listener so that when a star is clicked, function is run to push data into array. (When star is clicked again, remove?)
-         // star.addEventListener (): run the function?
-
-  //PLAYLIST: Function to append the playlist array to the page
-
-  //PLAYLIST: Event Listener so that when Playlist button is clicked, results and recommendations are hidden
-  //and the function appends playlist array to the screen
-
 });
+
+/*
+//PLAYLIST BRAINSTORM
+STAR BEHAVIOR
+  1. When a star is clicked, toggles being filled or blank. (Style only)
+  2. When a star is toggled, it sets starid property in the videoresults array of objects to true. By default, all videos are "False".
+  3. If the star is toggled again, it should set the starid to false.
+PLAYLIST button
+  1. When the playlist button is clicked, everything else should be hidden.
+  2. A function should then be run to only grab videoresults where starid = true.
+  3. Those results should then be appended to the page similar to other video screens.
+
+
+//PLAYLIST: SECTION START
+
+  //PLAYLIST: Function to have a star toggle visual behavior as well as have the property of the object change.
+
+  function starClicker(object){
+
+
+
+  }
+  //PLAYLIST: Event Listener so that when a star is clicked, above function is run
+
+
+  //PLAYLIST: Function to append the specified videoresults to the page. Also hides anything else on the screen. (Results or Recommendations)
+
+  function playlistBuilder(object) {
+
+}
+
+
+  //PLAYLIST: Event Listener so that when Playlist button is clicked, above function is run.
+*/
