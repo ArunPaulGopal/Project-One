@@ -433,6 +433,7 @@ $(document).ready(function(){
   var results = document.getElementById('results');
   //Upon search, use function to build hidden videos
   searchresults.addEventListener('click',function(e) {
+    $('#videos').empty();
       for (var i=0; i<videoresults.length; i++){
         videoBuilder(videoresults[i]);
       }
@@ -451,6 +452,7 @@ $(document).ready(function(){
     var searchbox = document.getElementById('searchtext');
     var searchtext = searchbox.value;
     if (searchtext.toLowerCase() === "motivation") {
+      $('#results').empty();
       for (var i=0; i<videoresults.length; i++) {
         resultBuilder(videoresults[i]);
       }
@@ -460,7 +462,6 @@ $(document).ready(function(){
         var position = _.indexOf(searchterms,searchtext);
         resultBuilder(videoresults[position]);
       }
-
     // Toggle video functionality, also ensures only one video can be viewed at a time.
     // Data attributes added so that comments can be built to the correct videos
     var submit= document.getElementById('submit');
@@ -499,6 +500,7 @@ $(document).ready(function(){
   });
   // COMMENTS: Call the comment history builder function when user searches
   searchresults.addEventListener('click',function(e) {
+
       for (var i=0; i<commenthistory.length; i++){
         commentBuilder(commenthistory[i]);
       }
