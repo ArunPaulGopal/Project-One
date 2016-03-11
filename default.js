@@ -290,6 +290,7 @@ $(document).ready(function(){
     })
 // SEARCH RESULTS: SECTION START
     // SEARCH RESULTS: Data
+    var searchterms = ["ice","speech","jobs","stoic"];
     var videoresults = [
       {
         title: "Inside the Superhman World of the Iceman",
@@ -302,6 +303,7 @@ $(document).ready(function(){
         url: "https://www.youtube.com/embed/VaMjhwFE1Zw",
         buttonid: "toggleiceman",
         rowid: "icerow",
+        index: "ice",
         starid: false,
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
@@ -316,6 +318,7 @@ $(document).ready(function(){
         url: "https://www.youtube.com/embed/plWexCID-kA",
         buttonid: "togglespeech",
         rowid: "speechrow",
+        index: "speech",
         starid: false,
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
@@ -330,6 +333,7 @@ $(document).ready(function(){
         url: "https://www.youtube.com/embed/D1R-jKKp3NA",
         buttonid: "togglejobs",
         rowid: "jobsrow",
+        index: "speech",
         starid: false,
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
@@ -344,6 +348,7 @@ $(document).ready(function(){
         url: "https://www.youtube.com/embed/EYWEAa-D5vM",
         buttonid: "togglesenecca",
         rowid: "seneccarow",
+        index: "stoic",
         starid: false,
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       }
@@ -437,6 +442,10 @@ $(document).ready(function(){
       $('#resultspanel').removeClass('hide');
     });
   // SEARCH RESULTS: Execute the function upon search.
+  /*Brainstorm search enhancements
+    1. get the value of the search text
+    2. if the value of the search text matches the keyword, then append certain video results
+  */
   // Also added in Video Toggling functionality here.
   searchresults.addEventListener('click',function(e) {
     var searchbox = document.getElementById('searchtext');
@@ -446,6 +455,12 @@ $(document).ready(function(){
         resultBuilder(videoresults[i]);
       }
     }
+    else {
+        $('#results').empty();
+        var position = _.indexOf(searchterms,searchtext);
+        resultBuilder(videoresults[position]);
+      }
+
     // Toggle video functionality, also ensures only one video can be viewed at a time.
     // Data attributes added so that comments can be built to the correct videos
     var submit= document.getElementById('submit');
