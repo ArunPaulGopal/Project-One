@@ -1,7 +1,7 @@
 $(document).ready(function(){
 //Make logo dissapear when clicked, first jquery test
   $('#logo').click(function(){
-    $(this).fadeOut("slow");
+    $(this).fadeToggle('fast');
   })
 // RECOMMENDATIONS: SECTION START
   // RECOMMENDATIONS: Data
