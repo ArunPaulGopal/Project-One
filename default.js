@@ -123,9 +123,7 @@ $(document).ready(function(){
       thumbnail.appendChild(caption);
       columndiv.appendChild(thumbnail);
       target.appendChild(columndiv);
-
-
-    }
+    };
   //RECOMMENDATIONS: Function to build the videos and allow user to watch
   function recoVideos(object) {
     var iframe = document.createElement('iframe');
@@ -443,10 +441,6 @@ $(document).ready(function(){
       $('#resultspanel').removeClass('hide');
     });
   // SEARCH RESULTS: Execute the function upon search.
-  /*Brainstorm search enhancements
-    1. get the value of the search text
-    2. if the value of the search text matches the keyword, then append certain video results
-  */
   // Also added in Video Toggling functionality here.
   searchresults.addEventListener('click',function(e) {
     var searchbox = document.getElementById('searchtext');
@@ -456,6 +450,11 @@ $(document).ready(function(){
       for (var i=0; i<videoresults.length; i++) {
         resultBuilder(videoresults[i]);
       }
+    }
+    else if (searchtext == "") {
+      $('#results').empty();
+      $('#results').append("<h1 class='text-center'>Please use a non blank search term to find videos!</h1>");
+      $('#results').append("<img src='images/404.jpg' class='center-block'>");
     }
     else {
         $('#results').empty();
@@ -500,13 +499,11 @@ $(document).ready(function(){
   });
   // COMMENTS: Call the comment history builder function when user searches
   searchresults.addEventListener('click',function(e) {
-
       for (var i=0; i<commenthistory.length; i++){
         commentBuilder(commenthistory[i]);
       }
     });
 });
-
 /*
 //PLAYLIST BRAINSTORM
 STAR BEHAVIOR
